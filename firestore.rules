@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ========================================================================
+    // ZENVYRA R&D DESK - FIRESTORE SECURITY RULES
+    // ========================================================================
+    
+    // Allow anyone visiting the storefront to submit an R&D Brief (create),
+    // and allow the Executive Admin Console to read all submitted inquiries.
+    match /rnd_inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if true;
+      // NOTE FOR FUTURE PRODUCTION ENFORCEMENT:
+      // When you add Firebase Authentication to your Admin Dashboard,
+      // replace 'if true;' on read/update/delete with:
+      // if request.auth != null && request.auth.token.admin == true;
+    }
+
+    // Default rule: block unauthorized access to any other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+  }
+}

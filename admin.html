@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenvyra Executive Console - Inventory & R&D Briefs Manager</title>
+  <meta name="description" content="Secure administration console for managing Zenvyra software inventory, updating INR pricing, and monitoring Firebase R&D client specifications.">
+  <link rel="stylesheet" href="./css/index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+  <!-- Admin PIN Security Lock Screen -->
+  <div id="admin-pin-overlay" class="pin-overlay">
+    <div class="pin-box">
+      <div class="logo-wrapper" style="justify-content: center; margin-bottom: 1.25rem;">
+        <img src="./assets/zenvyra_logo.jpg" alt="ZENVYRA Logo" style="width: 42px; height: 42px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(255,255,255,0.2);">
+        <span style="font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: #fff;">ZENVYRA <span style="font-size: 0.75rem; background: var(--brand-indigo); padding: 0.2rem 0.5rem; border-radius: 4px; vertical-align: middle;">DESK</span></span>
+      </div>
+      <h2 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-main); font-weight: 800;">Engineering Control Desk</h2>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 2rem; line-height: 1.5;">Enter your administrative security PIN to manage store inventories and review incoming client R&D briefs.</p>
+      
+      <div style="max-width: 300px; margin: 0 auto;">
+        <input type="password" id="admin-pin-input" class="input-field" placeholder="••••" style="text-align: center; font-size: 1.5rem; letter-spacing: 12px; padding: 1rem; border-radius: 8px;" autofocus>
+        <p id="pin-error-msg" style="color: #EF4444; font-size: 0.85rem; font-weight: 600; margin-top: 0.6rem; display: none;">❌ Incorrect Security Passcode</p>
+        <button id="admin-pin-submit" class="btn btn-primary" style="width: 100%; margin-top: 1.25rem; font-size: 1.05rem; padding: 1rem; justify-content: center;">
+          <span>Unlock Dashboard</span>
+        </button>
+      </div>
+
+      <div style="margin-top: 2.25rem; padding-top: 1.25rem; border-top: 1px dashed var(--border-subtle); font-size: 0.85rem; color: var(--text-muted);">
+        <span>💡 Default Security Passcode: <strong style="color: var(--text-main); font-family: var(--font-mono);">1234</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar" style="border-bottom: 1px solid var(--border-subtle);">
+    <div class="container navbar-inner">
+      <a href="./index.html" class="logo-link">
+        <img src="./assets/zenvyra_logo.jpg" alt="ZENVYRA Logo" style="width: 38px; height: 38px; border-radius: 6px; object-fit: cover;">
+        <span class="brand-text" style="font-size: 1.3rem;">ZENVYRA <span style="font-size: 0.72rem; background: #10B981; color: white; padding: 0.25rem 0.6rem; border-radius: 50px; vertical-align: middle; font-weight: 800; letter-spacing: 0.05em; margin-left: 0.35rem;">EXECUTIVE DESK</span></span>
+      </a>
+      
+      <div class="nav-actions">
+        <span style="font-size: 0.82rem; font-family: var(--font-mono); color: #10B981; margin-right: 0.75rem; background: rgba(16,185,129,0.1); padding: 0.4rem 0.85rem; border-radius: 50px; border: 1px solid rgba(16,185,129,0.3);">● FIREBASE_CLOUD_SYNCED</span>
+        <button id="theme-toggle" class="btn btn-secondary" style="padding: 0.6rem 0.85rem; border-radius: var(--radius-sm);" aria-label="Toggle Theme">
+          <span id="theme-icon-sun">☀️</span>
+          <span id="theme-icon-moon" style="display: none;">🌙</span>
+        </button>
+        <a href="./index.html" class="btn btn-primary" style="padding: 0.65rem 1.25rem; font-size: 0.92rem; border-radius: var(--radius-sm);">
+          <span>➔ Back to Storefront</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Workspace -->
+  <main style="padding: 3rem 0 6rem; min-height: 85vh;">
+    <div class="container">
+      
+      <!-- Dashboard Top Header & Tabs -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem;">
+        <div>
+          <span style="font-family: var(--font-mono); color: var(--brand-primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 0.35rem;">Central Engineering Management</span>
+          <h1 style="font-size: 2.35rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.03em;">Administration Console</h1>
+        </div>
+      </div>
+
+      <!-- Tab Navigation Bar -->
+      <div class="admin-tab-bar">
+        <button onclick="switchAdminTab('inventory', this)" class="admin-tab-btn active">
+          📦 Store Inventory & Budgets (₹)
+        </button>
+        <button onclick="switchAdminTab('rnd', this)" class="admin-tab-btn">
+          🔬 R&D Briefs (Firebase Cloud) <span style="background: #10B981; color: white; padding: 0.15rem 0.55rem; border-radius: 50px; font-size: 0.72rem; vertical-align: middle; margin-left: 0.4rem;">NEW</span>
+        </button>
+      </div>
+
+      <!-- Live Toast Message -->
+      <div id="admin-toast" style="display: none; background: #10B981; color: white; padding: 1rem 1.5rem; border-radius: var(--radius-sm); font-weight: 700; margin-bottom: 1.75rem; box-shadow: 0 4px 15px rgba(16,185,129,0.4);"></div>
+
+      <!-- SECTION 1: INVENTORY MANAGEMENT TAB -->
+      <div id="section-inventory" style="display: block;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; background: var(--bg-primary); padding: 1.25rem 1.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--text-main); font-weight: 700; margin-bottom: 0.2rem;">Catalog Price Calibration & Additions</h3>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Modify INR prices inline or export catalog backups.</p>
+          </div>
+          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
+            <button onclick="openAddProductModal()" class="btn btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.9rem;">
+              <span>➕ Add New Product & Photo</span>
+            </button>
+            <button id="btn-export-json" class="btn btn-secondary" style="padding: 0.75rem 1.2rem; font-size: 0.9rem;">
+              <span>📥 Backup (JSON)</span>
+            </button>
+            <button id="btn-import-json" class="btn btn-secondary" style="padding: 0.75rem 1.2rem; font-size: 0.9rem;">
+              <span>📤 Restore Catalog</span>
+            </button>
+            <input type="file" id="file-import-json" accept=".json" style="display: none;">
+          </div>
+        </div>
+
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 85px;">Photo</th>
+                <th>System Architecture & ID</th>
+                <th style="width: 180px;">Domain Category</th>
+                <th style="width: 150px; text-align: right;">Fixed Price (INR ₹)</th>
+                <th style="width: 110px; text-align: center;">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body">
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 4rem; color: var(--text-muted); font-family: var(--font-mono);">🔄 Initializing database catalog...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECTION 2: R&D BRIEFS (FIREBASE) TAB -->
+      <div id="section-rnd" style="display: none;">
+        <div style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%); border: 1px solid rgba(139, 92, 246, 0.3); padding: 1.5rem 2rem; border-radius: var(--radius-md); margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div>
+            <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #10B981; color: #fff; font-size: 0.75rem; font-weight: 800; padding: 0.25rem 0.75rem; border-radius: 50px; margin-bottom: 0.5rem;">
+              <span>● FIRESTORE CLOUD DATABASE LIVE</span>
+            </div>
+            <h3 style="font-size: 1.45rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.35rem;">Custom Engineering R&D Consultations</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 680px; line-height: 1.6;">All technical brief submissions registered by clients on the storefront modal are synced instantly to your Firebase database (Project: <code style="color: #c4b5fd;">website-77f78</code>). Review specifications below and initiate WhatsApp engineering consultations directly.</p>
+          </div>
+          <button onclick="renderRnDTable(); showAdminToast('🔄 Syncing fresh briefs from Firebase...');" class="btn btn-secondary" style="padding: 0.75rem 1.4rem; font-size: 0.92rem;">
+            <span>🔄 Refresh Cloud Database</span>
+          </button>
+        </div>
+
+        <div class="admin-table-wrapper">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th style="width: 130px;">Timestamp</th>
+                <th style="width: 200px;">Client / Organization</th>
+                <th style="width: 150px;">WhatsApp Contact</th>
+                <th>Architecture Specifications & Objectives</th>
+                <th style="width: 190px; text-align: center;">Direct Engineering Action</th>
+              </tr>
+            </thead>
+            <tbody id="rnd-table-body">
+              <tr>
+                <td colspan="5" style="text-align: center; padding: 4rem; color: var(--text-muted); font-family: var(--font-mono);">🔄 Connecting to Firebase Firestore records...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Add New Product Modal -->
+  <div id="add-product-modal" class="modal-backdrop" style="display: none; align-items: center; justify-content: center; z-index: 999; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(7, 8, 12, 0.85); backdrop-filter: blur(12px);">
+    <div class="modal-box" style="max-width: 640px; padding: 2.5rem; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); box-shadow: 0 30px 70px rgba(0,0,0,0.7); width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close" onclick="closeAddProductModal()" style="position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: none; color: var(--text-muted); font-size: 1.4rem; cursor: pointer;">✕</button>
+      <span style="font-family: var(--font-mono); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 0.35rem;">Catalog Expansion</span>
+      <h3 style="font-size: 1.65rem; font-weight: 800; color: var(--text-main); margin-bottom: 1.5rem;">Add New Software System</h3>
+
+      <form id="add-product-form" style="display: flex; flex-direction: column; gap: 1.25rem;">
+        <div>
+          <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Product Software Title *</label>
+          <input type="text" id="prod-title" class="input-field" placeholder="e.g. AI Autonomous Drone Navigation System using Python" required style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-main);">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem;">
+          <div>
+            <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Category Domain</label>
+            <select id="prod-cat" class="input-field" style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-main); appearance: auto;">
+              <option value="ai">AI & Deep Learning</option>
+              <option value="blockchain">Web3 & Blockchain</option>
+              <option value="iot">IoT & Robotics</option>
+              <option value="datascience">Data Science & FinTech</option>
+              <option value="web">Full-Stack Web Dev</option>
+              <option value="mba">MBA Strategy & Research</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Price Budget (INR ₹) *</label>
+            <input type="text" id="prod-price" class="input-field" value="₹4,500" required style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-main); font-weight: 700;">
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Upload Product Photo (Base64 Memory) *</label>
+          <div onclick="document.getElementById('prod-img-file').click();" style="border: 2px dashed rgba(139,92,246,0.4); border-radius: 8px; padding: 2rem 1.5rem; text-align: center; cursor: pointer; background: rgba(139,92,246,0.04); transition: all 0.2s;">
+            <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📸</span>
+            <strong style="color: var(--text-main); font-size: 0.95rem; display: block;">Click to browse image file from computer</strong>
+            <span style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; display: block;">Converts automatically to zero-latency Base64 memory encoding</span>
+            <input type="file" id="prod-img-file" accept="image/*" style="display: none;">
+          </div>
+          <img id="prod-img-preview" alt="Preview" style="display: none; max-height: 150px; margin-top: 1rem; border-radius: 8px; border: 1px solid var(--border-subtle);">
+          <input type="hidden" id="prod-img-base64">
+        </div>
+
+        <div>
+          <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Technical Description & Overview</label>
+          <textarea id="prod-desc" class="input-field" rows="3" placeholder="Explain system algorithms, real-time sensor accuracy, and architecture benefits..." style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-main); line-height: 1.5;"></textarea>
+        </div>
+
+        <div>
+          <label class="form-label" style="display:block; margin-bottom:0.4rem; color:var(--text-main); font-size:0.9rem; font-weight:600;">Deliverable Tags (Comma separated)</label>
+          <input type="text" id="prod-tech" class="input-field" value="Full Codebase, Schematics, 60+ Pg Specs, Setup Manual" style="width: 100%; padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border-subtle); background: var(--bg-primary); color: var(--text-main);">
+        </div>
+
+        <button type="button" id="btn-save-product" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.05rem; justify-content: center; margin-top: 0.5rem;">
+          <span>✨ Publish to Store Now</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer" style="border-top: 1px solid var(--border-subtle); padding: 2rem 0; margin-top: auto;">
+    <div class="container" style="text-align: center; color: var(--text-muted); font-size: 0.88rem;">
+      <p>ZENVYRA Executive Console — Powered by Firebase Cloud Architecture © 2026</p>
+    </div>
+  </footer>
+
+  <!-- Firebase Cloud SDK Engine -->
+  <script type="module" src="./js/firebase-config.js"></script>
+  <!-- Core Controller Script -->
+  <script src="./js/app.js"></script>
+</body>
+</html>

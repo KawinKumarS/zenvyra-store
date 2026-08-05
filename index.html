@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZENVYRA Store | Engineering Architectures & Autonomous Hardware</title>
+  <meta name="description" content="Production-grade autonomous robotics hardware, embedded systems, and verified AI enterprise architectures ready for instant compile and deployment.">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Precision Enterprise Header -->
+  <header class="main-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-wrapper">
+        <img src="./assets/zenvyra_logo.jpg" alt="ZENVYRA Logo" class="nav-logo-img">
+        <div class="logo-text-col">
+          <span class="logo-main-title">ZENVYRA <span class="logo-store-tag">STORE</span></span>
+          <span class="logo-slogan">Build. Innovate. Evolve.</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#catalog-section" class="nav-link">Architectures</a></li>
+          <li><a href="#advantages-section" class="nav-link">Engineering Standards</a></li>
+          <li><a href="#reviews-section" class="nav-link">Case Studies</a></li>
+          <li><a href="javascript:void(0)" onclick="openInquiryModal()" class="nav-link">Custom R&D Desk</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle-btn" onclick="toggleTheme()" id="theme-btn" title="Toggle Light/Dark Theme">
+          <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button type="button" class="btn btn-primary" onclick="openInquiryModal()">
+          <span>Speak with Engineers</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+        <button type="button" class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Immersive Spatial 3D Hero Section -->
+    <section class="hero-section hero-3d-spatial">
+      <!-- Full-screen immersive 3D spatial field -->
+      <div class="spatial-canvas-layer" id="canvas-container">
+        <canvas id="three-hero-canvas"></canvas>
+      </div>
+
+      <div class="container hero-spatial-content">
+        <div class="hero-glass-panel scroll-reveal">
+          <h1 class="hero-title">
+            Engineering Production-Ready Systems for <span class="title-gradient">Rapid Innovation.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Accelerate commercial prototyping with high-precision robotics hardware rovers, embedded IoT sensor arrays, and modular LLM software systems. Every build includes complete circuit schematics, clean source code, and comprehensive specification manuals.
+          </p>
+
+          <div class="hero-btn-group">
+            <a href="#catalog-section" class="btn btn-primary" style="padding: 0.9rem 1.8rem; font-size: 1rem;">
+              <span>Explore All 140 Systems</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <button type="button" onclick="openInquiryModal()" class="btn btn-secondary" style="padding: 0.9rem 1.8rem; font-size: 1rem;">
+              <span>Request Custom Build</span>
+            </button>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <h3 class="stat-num" data-target="140" data-suffix="+">140+</h3>
+              <p>Verified Codebases</p>
+            </div>
+            <div class="metric-item">
+              <h3>₹1.5k – ₹5k</h3>
+              <p>Standardized Pricing</p>
+            </div>
+            <div class="metric-item">
+              <h3 class="stat-num" data-target="100" data-suffix="%">100%</h3>
+              <p>Tested & Compiled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spatial-hud-indicator">
+        <span>Interactive 3D Universe • Move Cursor to Tilt Spatial Axis</span>
+      </div>
+    </section>
+
+    <!-- Main Marketplace Catalog Section -->
+    <section id="catalog-section" class="catalog-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-subtitle">System Directory</span>
+          <h2 class="section-title">Ready-to-Deploy Engineering Catalog</h2>
+          <p class="section-desc">
+            Browse our comprehensive inventory of 40 robotics hardware builds and 100 scalable software architectures. Filter by technical domain or search by exact specification.
+          </p>
+        </div>
+
+        <!-- High-Contrast Guidance Desk Callout Banner -->
+        <div class="guidance-banner scroll-reveal">
+          <div class="guidance-content">
+            <span class="guidance-tag">Direct Engineering Assistance</span>
+            <h3 class="guidance-heading">Need technical alignment for your prototyping objectives?</h3>
+            <p class="guidance-subtext">Connect directly with our lead system architectures desk. Describe your hardware sensor tolerances or software targets to receive instant tailored recommendations on WhatsApp.</p>
+          </div>
+          <div>
+            <button type="button" onclick="openInquiryModal()" class="btn btn-primary" style="padding: 1rem 1.8rem;">
+              <span>Consult Lead Engineers</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Precision Filter and Search Bar -->
+        <div class="catalog-controls scroll-reveal">
+          <div class="filter-group">
+            <button type="button" class="filter-btn active" onclick="filterCatalog('ALL', this)">
+              <span>All Systems</span>
+              <span class="filter-count">140</span>
+            </button>
+            <button type="button" class="filter-btn" onclick="filterCatalog('HARDWARE', this)">
+              <span>Robotics & Hardware</span>
+              <span class="filter-count">40</span>
+            </button>
+            <button type="button" class="filter-btn" onclick="filterCatalog('SOFTWARE', this)">
+              <span>AI & Software</span>
+              <span class="filter-count">100</span>
+            </button>
+          </div>
+          
+          <div class="search-box">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="search-input" class="search-input" placeholder="Search ESP32, Python, ROS, IoT, TensorFlow..." oninput="searchCatalog(this.value)">
+          </div>
+        </div>
+
+        <!-- Dynamic Product Grid -->
+        <div class="projects-grid" id="projects-grid">
+          <!-- Populated dynamically via js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Standards Section -->
+    <section id="advantages-section" class="advantages-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-subtitle">Why ZENVYRA</span>
+          <h2 class="section-title">Built to Commercial Engineering Standards</h2>
+          <p class="section-desc">We bridge the gap between abstract academic concepts and commercial prototyping by delivering production-grade deliverable packages.</p>
+        </div>
+
+        <div class="adv-grid">
+          <div class="adv-card scroll-reveal" style="transition-delay: 50ms;">
+            <span class="adv-icon-num">01 / HARDWARE INTEGRITY</span>
+            <h3>Schematic & PCB Verification</h3>
+            <p>Every robotics and IoT build includes verified Gerber files, exact circuit schematics, pinout allocation diagrams, and calibrated hardware sensor tolerances.</p>
+          </div>
+
+          <div class="adv-card scroll-reveal" style="transition-delay: 120ms;">
+            <span class="adv-icon-num">02 / SOFTWARE RIGOR</span>
+            <h3>Clean Autonomous Architecture</h3>
+            <p>Codebases are engineered with modular OOP structures, well-commented execution loops, zero legacy technical debt, and complete containerized setups where applicable.</p>
+          </div>
+
+          <div class="adv-card scroll-reveal" style="transition-delay: 190ms;">
+            <span class="adv-icon-num">03 / DOCUMENTATION</span>
+            <h3>Comprehensive Spec Docs</h3>
+            <p>Each system is accompanied by a rigorous 60+ page engineering specification document detailing mathematical formulations, test suites, and data flow pipelines.</p>
+          </div>
+
+          <div class="adv-card scroll-reveal" style="transition-delay: 260ms;">
+            <span class="adv-icon-num">04 / RAPID ACQUISITION</span>
+            <h3>Instant WhatsApp Deployment</h3>
+            <p>Streamlined engineering fulfillment. Select your target system, initiate direct checkout with our operations team, and receive git repositories and asset bundles instantly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Case Studies Section -->
+    <section id="reviews-section" class="reviews-section">
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <span class="section-subtitle">Deployment Case Studies</span>
+          <h2 class="section-title">Trusted by Systems Engineers & Architects</h2>
+        </div>
+
+        <div class="reviews-grid">
+          <div class="review-card scroll-reveal" style="transition-delay: 50ms;">
+            <div>
+              <span class="review-badge">[VERIFIED HARDWARE ACQUISITION]</span>
+              <p class="review-quote">"We needed an autonomous obstacle-navigating rover architecture for our automated warehouse prototype. ZENVYRA delivered clean embedded C++ loops for the ESP32 and accurate motor controller schematics within minutes."</p>
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">V</div>
+              <div class="author-info">
+                <h4>Vikram Deshmukh</h4>
+                <p>Senior Robotics Engineer, TechVenture Labs</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card scroll-reveal" style="transition-delay: 150ms;">
+            <div>
+              <span class="review-badge">[VERIFIED AI ARCHITECTURE ACQUISITION]</span>
+              <p class="review-quote">"The multi-agent LLM software pipeline we acquired was immaculately structured. The modular design enabled our team to integrate custom RAG embeddings seamlessly without spending weeks on foundation boilerplate."</p>
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">S</div>
+              <div class="author-info">
+                <h4>Siddharth Iyer</h4>
+                <p>Principal Systems Architect, Nexa AI</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card scroll-reveal" style="transition-delay: 250ms;">
+            <div>
+              <span class="review-badge">[VERIFIED IOT DEPLOYMENT]</span>
+              <p class="review-quote">"The industrial gas sensor patrol system package included thorough calibration logs and an intuitive React telemetry frontend. It saved our engineering division over two months of preliminary testing."</p>
+            </div>
+            <div class="review-author">
+              <div class="author-avatar">A</div>
+              <div class="author-info">
+                <h4>Ananya Sharma</h4>
+                <p>Director of R&D, Apex Embedded Technologies</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Professional Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo-wrapper" style="margin-bottom: 1.5rem;">
+            <img src="./assets/zenvyra_logo.jpg" alt="ZENVYRA" class="nav-logo-img">
+            <div class="logo-text-col">
+              <span class="logo-main-title">ZENVYRA <span class="logo-store-tag">STORE</span></span>
+              <span class="logo-slogan">Build. Innovate. Evolve.</span>
+            </div>
+          </div>
+          <p style="color: var(--text-muted); line-height: 1.65; max-width: 380px;">
+            The premier marketplace for production-ready autonomous hardware robotics, IoT sensor systems, and scalable enterprise software architectures.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>System Directory</h4>
+          <ul>
+            <li><a href="#catalog-section">Robotics & Smart Hardware</a></li>
+            <li><a href="#catalog-section">AI & LLM Architectures</a></li>
+            <li><a href="#catalog-section">IoT & Embedded Systems</a></li>
+            <li><a href="#catalog-section">Enterprise Web Frameworks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Engineering Standard</h4>
+          <ul>
+            <li><a href="#advantages-section">Circuit Schematics & PCBs</a></li>
+            <li><a href="#advantages-section">Source Code Integrity</a></li>
+            <li><a href="#advantages-section">Specification Documents</a></li>
+            <li><a href="javascript:void(0)" onclick="openInquiryModal()">Custom Prototype Design</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Engineering Headquarters</h4>
+          <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 0.75rem;">Direct Indian engineering support line & system acquisition:</p>
+          <p style="font-family: var(--font-mono); color: var(--brand-primary); font-weight: 700; font-size: 1rem;">+91 94819 50130</p>
+          <p style="color: var(--text-subtle); font-size: 0.82rem; margin-top: 0.4rem;">Available via WhatsApp for rapid specification fulfillment.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ZENVYRA Engineering Technologies. All engineering architectures reserved.</p>
+        <p style="font-family: var(--font-mono);">BUILD. INNOVATE. EVOLVE.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== MODALS & DIALOGS ==================== -->
+  
+  <!-- System Specification Details Modal -->
+  <div class="modal-overlay" id="proj-modal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="proj-modal-title">System Specifications</h3>
+        <button type="button" class="modal-close" onclick="closeProjModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body" id="proj-modal-body">
+        <!-- Injected dynamically via app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Instant Checkout Modal -->
+  <div class="modal-overlay" id="buy-modal">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Acquire Architecture</h3>
+        <button type="button" class="modal-close" onclick="closeBuyModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <form onsubmit="handleBuySubmit(event)">
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="buy-proj-name">Target Architecture</label>
+          <input type="text" id="buy-proj-name" class="input-field" readonly style="background: var(--bg-primary); font-weight: 700; color: var(--brand-primary);">
+          <input type="hidden" id="buy-proj-price">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="buy-user-name">Engineer / Client Name <span style="color:var(--danger-crimson);">*</span></label>
+          <input type="text" id="buy-user-name" class="input-field" required placeholder="e.g. Rahul Sharma">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="buy-user-phone">WhatsApp Contact Number <span style="color:var(--danger-crimson);">*</span></label>
+          <input type="tel" id="buy-user-phone" class="input-field" required placeholder="+91 XXXXXXXXXX">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label class="form-label" for="buy-user-req">Project Customization / Technical Timeline</label>
+          <textarea id="buy-user-req" class="input-field" rows="3" placeholder="Specify any additional sensor requirements or framework preferences..."></textarea>
+        </div>
+        <div style="padding: 1rem; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xs); margin-bottom: 1.5rem; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">Total Acquisition Investment:</span>
+            <span id="buy-price-display" style="font-family: var(--font-mono); font-size: 1.25rem; font-weight: 700; color: var(--text-main);">₹3,000 INR</span>
+          </div>
+          <span style="font-size: 0.72rem; background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); padding: 0.25rem 0.5rem; border-radius: 4px; font-weight:600; font-family:var(--font-mono);">INCLUDES FULL SOURCE</span>
+        </div>
+        <button type="submit" class="btn btn-success" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1rem;">
+          <span>Initiate WhatsApp Checkout</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Engineering Consultation Modal -->
+  <div class="modal-overlay" id="inquiry-modal">
+    <div class="modal-box" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Engineering R&D Desk</h3>
+        <button type="button" class="modal-close" onclick="closeInquiryModal()" aria-label="Close modal">&times;</button>
+      </div>
+      <form onsubmit="handleInquirySubmit(event)">
+        <p style="color: var(--text-muted); font-size: 0.92rem; margin-bottom: 1.5rem; line-height: 1.5;">
+          Speak directly with our senior hardware and software engineers. We will analyze your specifications and formulate an exact system solution.
+        </p>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="inq-name">Your Name / Organization <span style="color:var(--danger-crimson);">*</span></label>
+          <input type="text" id="inq-name" class="input-field" required placeholder="e.g. Vikram Verma">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label" for="inq-phone">WhatsApp Contact Number <span style="color:var(--danger-crimson);">*</span></label>
+          <input type="tel" id="inq-phone" class="input-field" required placeholder="+91 XXXXXXXXXX">
+        </div>
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+          <label class="form-label" for="inq-query">Architecture Specifications & Objectives <span style="color:var(--danger-crimson);">*</span></label>
+          <textarea id="inq-query" class="input-field" rows="4" required placeholder="Describe your required robotics hardware payload, microcontroller constraints, or AI backend architecture..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1rem;">
+          <span>Submit Direct Engineering Brief</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- External Three.js library for Observation Studio -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Firebase Cloud SDK Engine -->
+  <script type="module" src="./js/firebase-config.js"></script>
+  <!-- Application Core Script -->
+  <script src="./js/app.js"></script>
+</body>
+</html>
