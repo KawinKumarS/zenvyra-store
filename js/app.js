@@ -396,12 +396,25 @@ function renderCatalog() {
   }
 
   const filtered = allSystems.filter(sys => {
-    const sysCat = sys.categoryLabel || sys.category || sys.domain || '';
-    const isHardware = sysCat.toUpperCase().includes('ROBOTICS') || sysCat.toUpperCase().includes('HARDWARE') || sysCat.toUpperCase().includes('IOT');
+    const sysCat = (sys.categoryLabel || sys.category || sys.domain || '').toUpperCase();
+    const rawCat = (sys.category || '').toLowerCase();
+    const sysId = (sys.id || '').toLowerCase();
+    const isHardware = sysId.startsWith('bot-') || rawCat === 'iot' || sysCat.includes('ROBOTICS') || sysCat.includes('HARDWARE') || sysCat.includes('IOT');
     
     let matchesCategory = true;
-    if (currentCategoryFilter === 'HARDWARE') matchesCategory = isHardware;
-    else if (currentCategoryFilter === 'SOFTWARE') matchesCategory = !isHardware;
+    if (currentCategoryFilter === 'HARDWARE') {
+      matchesCategory = isHardware;
+    } else if (currentCategoryFilter === 'SOFTWARE') {
+      matchesCategory = !isHardware;
+    } else if (currentCategoryFilter === 'AI') {
+      matchesCategory = !isHardware && (rawCat === 'ai' || sysCat.includes('AI') || sysCat.includes('DEEP LEARNING'));
+    } else if (currentCategoryFilter === 'BLOCKCHAIN') {
+      matchesCategory = !isHardware && (rawCat === 'blockchain' || sysCat.includes('BLOCKCHAIN') || sysCat.includes('WEB3') || sysCat.includes('DEFI') || sysCat.includes('DAO'));
+    } else if (currentCategoryFilter === 'WEB') {
+      matchesCategory = !isHardware && (rawCat === 'web' || sysCat.includes('WEB') || sysCat.includes('PWA') || sysCat.includes('APP'));
+    } else if (currentCategoryFilter === 'DATA') {
+      matchesCategory = !isHardware && (rawCat === 'datascience' || rawCat === 'mba' || sysCat.includes('DATA') || sysCat.includes('SECURITY') || sysCat.includes('CYBER') || sysCat.includes('FINTECH') || sysCat.includes('SOC') || sysCat.includes('MBA'));
+    }
     
     const titleText = (sys.title || sys.name || '').toLowerCase();
     const descText = (sys.desc || '').toLowerCase();
@@ -417,17 +430,25 @@ function renderCatalog() {
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
         <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">No architecture matches specified filtering criteria</p>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Modify search parameter or revert category selector to all 140 systems.</p>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Modify search parameter or revert category selector to view all systems.</p>
       </div>
     `;
     return;
   }
 
   grid.innerHTML = filtered.map((sys, idx) => {
-    const isHardware = (sys.categoryLabel || sys.category || '').toUpperCase().includes('ROBOTICS') || 
-                       (sys.categoryLabel || sys.category || '').toUpperCase().includes('HARDWARE');
+    const sysCat = (sys.categoryLabel || sys.category || sys.domain || '').toUpperCase();
+    const rawCat = (sys.category || '').toLowerCase();
+    const isHardware = (sys.id || '').toLowerCase().startsWith('bot-') || rawCat === 'iot' || sysCat.includes('ROBOTICS') || sysCat.includes('HARDWARE') || sysCat.includes('IOT');
     const displayPrice = sys.price || (isHardware ? '₹4,500' : '₹2,500');
-    const domainTag = isHardware ? 'ROBOTICS SYSTEM' : 'AI ARCHITECTURE';
+    
+    let domainTag = 'SOFTWARE ARCHITECTURE';
+    if (isHardware) domainTag = 'ROBOTICS & IOT';
+    else if (rawCat === 'blockchain' || sysCat.includes('BLOCKCHAIN') || sysCat.includes('WEB3')) domainTag = 'WEB3 & BLOCKCHAIN';
+    else if (rawCat === 'datascience' || sysCat.includes('DATA') || sysCat.includes('SECURITY') || sysCat.includes('FINTECH') || rawCat === 'mba') domainTag = 'CYBER & FINTECH';
+    else if (rawCat === 'web' || sysCat.includes('WEB') || sysCat.includes('FULL-STACK')) domainTag = 'FULL-STACK WEB';
+    else if (rawCat === 'ai' || sysCat.includes('AI') || sysCat.includes('DEEP')) domainTag = 'AI & LLM ARCHITECTURE';
+
     const deliverables = sys.tech && sys.tech.length > 0 ? sys.tech : 
                          (isHardware ? ['ESP32 / Arduino', 'PCB Schema', '60+ Pg Specs', 'C++ Source'] : ['Full Codebase', 'DB Schematics', '60+ Pg Specs', 'Python / TS']);
 
