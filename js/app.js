@@ -601,12 +601,12 @@ function closeAllModals() {
 }
 
 /* ==========================================================================
-   7. Engineering WhatsApp Checkout Transmission (+91 94819 50130)
+   7. Engineering WhatsApp Checkout Transmission (+91 73970 41575)
    ========================================================================== */
 function handleBuySubmit(e) {
   e.preventDefault();
   const sysName = document.getElementById('buy-proj-name')?.value || 'System Architecture';
-  const sysPrice = document.getElementById('buy-proj-price')?.value || '₹3,000';
+  const sysPrice = document.getElementById('buy-proj-price')?.value || '₹1,199';
   const clientName = document.getElementById('buy-user-name')?.value || 'Engineer / Client';
   const clientPhone = document.getElementById('buy-user-phone')?.value || 'N/A';
   const clientReq = document.getElementById('buy-user-req')?.value.trim() || 'Standard engineering deliverables as specified.';
@@ -614,7 +614,7 @@ function handleBuySubmit(e) {
   const message = `Hello ZENVYRA Engineering Team,\n\nI would like to acquire the following system architecture:\n\n*System Architecture:* ${sysName}\n*Fixed Investment:* ${sysPrice} INR\n\n*Client / Engineer details:*\n- Name: ${clientName}\n- Contact: ${clientPhone}\n- Custom Implementation Notes: ${clientReq}\n\nPlease provide direct repository access, specification documentation, and payment instructions.`;
 
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/919481950130?text=${encoded}`, '_blank');
+  window.open(`https://wa.me/917397041575?text=${encoded}`, '_blank');
   closeBuyModal();
 }
 
@@ -643,7 +643,7 @@ function handleInquirySubmit(e) {
   // 3. Open Direct WhatsApp Engineering Desk
   const message = `Hello ZENVYRA R&D Desk,\n\nI am contacting you regarding a customized architecture consultation:\n\n*Name/Organization:* ${name}\n*WhatsApp Contact:* ${phone}\n\n*Technical Objectives & Specifications:*\n${query}\n\nPlease assign an engineer to discuss appropriate system options within your inventory.`;
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/919481950130?text=${encoded}`, '_blank');
+  window.open(`https://wa.me/917397041575?text=${encoded}`, '_blank');
   closeInquiryModal();
 }
 
