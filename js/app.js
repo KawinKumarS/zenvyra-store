@@ -136,112 +136,112 @@ const RAW_PROJECTS = [
   ["bot-040", "Environmental Data Collection Rover", "iot", "Environmental Rovers", "₹4,200", "Rugged wilderness conservation rover gathering soil pH samples, humidity indices, and forest ambient wildlife audio without disturbing delicate fauna ecosystems.", "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"],
 
   // =========================================================================
-  // 💻 SECTION 2: 100 HACKATHON SOFTWARE ARCHITECTURES (Price: ₹1,500 - ₹3,000)
+  // 💻 SECTION 2: 100 HACKATHON SOFTWARE ARCHITECTURES (Price: ₹699 - ₹1,499)
   // =========================================================================
-  ["zen-001", "AI SOC Analyst (Alert Triage Agent)", "ai", "AI & Deep Learning", "₹2,800", "Automated alert prioritization and security incident triage agent powered by LLMs."],
-  ["zen-002", "Automated Threat Hunter Agent", "ai", "AI & Deep Learning", "₹3,000", "Proactive cyber threat hunting network utilizing autonomous reasoning frameworks."],
-  ["zen-003", "Compliance AI: GDPR Request Handler", "ai", "AI & Deep Learning", "₹2,200", "Automated user data right requests and regulatory compliance documentation checker."],
-  ["zen-004", "RAG Retrieval Agent for Docs Q&A", "ai", "AI & Deep Learning", "₹2,700", "Retrieval-Augmented Generation engine for enterprise document comprehension and technical Q&A."],
-  ["zen-005", "AI Code Review Assistant for PRs", "ai", "AI & Deep Learning", "₹2,500", "Automated pull request syntax reviewer, refactoring suggestor, and bug identifier."],
-  ["zen-006", "AI Slide Generator from Text", "ai", "AI & Deep Learning", "₹1,600", "Converts raw essay documentation and bullet points into styled viva presentations."],
-  ["zen-007", "Work Automation Agent (Calendar + Email)", "ai", "AI & Deep Learning", "₹1,800", "Autonomous workflow scheduler and smart inbox assistant with multi-calendar routing."],
-  ["zen-008", "AI Meeting Summary & Insights Bot", "ai", "AI & Deep Learning", "₹1,700", "Audio transcript transcription and action-item extraction engine for engineering syncs."],
-  ["zen-009", "AI Workflow Automator (CI/CD)", "ai", "AI & Deep Learning", "₹2,600", "Self-healing CI/CD pipeline manager that parses compile failure logs and auto-suggests patch commits."],
-  ["zen-010", "AI Habit Coach with Streak Tracker", "ai", "AI & Deep Learning", "₹1,500", "Personalized cognitive coaching interface with streak gamification and adaptive reminders."],
-  ["zen-011", "On-Chain Autonomous DeFi Agent", "blockchain", "Web3 & Blockchain", "₹3,000", "Autonomous on-chain liquidator and arbitrage bot operating on Ethereum decentralized liquidity pools."],
-  ["zen-012", "Agentic Swap & Yield Robot", "blockchain", "Web3 & Blockchain", "₹2,900", "Smart smart-contract routing engine maximizing yield farming APR across automated market makers."],
-  ["zen-013", "DAO Contributor Agent (Autonomous)", "blockchain", "Web3 & Blockchain", "₹2,600", "Automates decentralized governance task bounty tracking and token payout distribution."],
-  ["zen-014", "Swarm AI Agent-Based Marketplace", "blockchain", "Web3 & Blockchain", "₹3,000", "Decentralized multi-agent marketplace where autonomous bots negotiate micro-service contracts."],
-  ["zen-015", "Supply-Chain Tracker Agent (Blockchain)", "blockchain", "Web3 & Blockchain", "₹2,800", "Immutable shipping lot verification and counterfeiting detection protocol using smart contracts."],
-  ["zen-016", "Agentic Finance Worker (Rebalance + Trade)", "datascience", "Data Science & FinTech", "₹2,700", "Quant algorithmic trading portfolio rebalancer fueled by sentiment NLP indicators."],
-  ["zen-017", "Agentic Identity Verifier (DID)", "blockchain", "Web3 & Blockchain", "₹2,500", "Decentralized Identifier (DID) validation layer protecting sovereign personal authentication."],
-  ["zen-018", "Agentic Knowledge Miner (Web Crawling + Summary)", "ai", "AI & Deep Learning", "₹2,100", "Autonomous deep-web scraping and structured synthesis agent for corporate competitive analysis."],
-  ["zen-019", "Document Privacy Compliance Assistant", "datascience", "Data Science & FinTech", "₹1,800", "Automated redaction and personally identifiable information (PII) masking system."],
-  ["zen-020", "Virtual Security Coach (Phishing Training)", "datascience", "Data Science & FinTech", "₹1,900", "Interactive cybersecurity training playground that simulates adaptive phishing scenarios."],
+  ["zen-001", "AI SOC Analyst (Alert Triage Agent)", "ai", "AI & Deep Learning", "₹1,399", "Automated alert prioritization and security incident triage agent powered by LLMs."],
+  ["zen-002", "Automated Threat Hunter Agent", "ai", "AI & Deep Learning", "₹1,499", "Proactive cyber threat hunting network utilizing autonomous reasoning frameworks."],
+  ["zen-003", "Compliance AI: GDPR Request Handler", "ai", "AI & Deep Learning", "₹1,099", "Automated user data right requests and regulatory compliance documentation checker."],
+  ["zen-004", "RAG Retrieval Agent for Docs Q&A", "ai", "AI & Deep Learning", "₹1,299", "Retrieval-Augmented Generation engine for enterprise document comprehension and technical Q&A."],
+  ["zen-005", "AI Code Review Assistant for PRs", "ai", "AI & Deep Learning", "₹1,199", "Automated pull request syntax reviewer, refactoring suggestor, and bug identifier."],
+  ["zen-006", "AI Slide Generator from Text", "ai", "AI & Deep Learning", "₹799", "Converts raw essay documentation and bullet points into styled viva presentations."],
+  ["zen-007", "Work Automation Agent (Calendar + Email)", "ai", "AI & Deep Learning", "₹999", "Autonomous workflow scheduler and smart inbox assistant with multi-calendar routing."],
+  ["zen-008", "AI Meeting Summary & Insights Bot", "ai", "AI & Deep Learning", "₹899", "Audio transcript transcription and action-item extraction engine for engineering syncs."],
+  ["zen-009", "AI Workflow Automator (CI/CD)", "ai", "AI & Deep Learning", "₹1,199", "Self-healing CI/CD pipeline manager that parses compile failure logs and auto-suggests patch commits."],
+  ["zen-010", "AI Habit Coach with Streak Tracker", "ai", "AI & Deep Learning", "₹699", "Personalized cognitive coaching interface with streak gamification and adaptive reminders."],
+  ["zen-011", "On-Chain Autonomous DeFi Agent", "blockchain", "Web3 & Blockchain", "₹1,499", "Autonomous on-chain liquidator and arbitrage bot operating on Ethereum decentralized liquidity pools."],
+  ["zen-012", "Agentic Swap & Yield Robot", "blockchain", "Web3 & Blockchain", "₹1,399", "Smart smart-contract routing engine maximizing yield farming APR across automated market makers."],
+  ["zen-013", "DAO Contributor Agent (Autonomous)", "blockchain", "Web3 & Blockchain", "₹1,299", "Automates decentralized governance task bounty tracking and token payout distribution."],
+  ["zen-014", "Swarm AI Agent-Based Marketplace", "blockchain", "Web3 & Blockchain", "₹1,499", "Decentralized multi-agent marketplace where autonomous bots negotiate micro-service contracts."],
+  ["zen-015", "Supply-Chain Tracker Agent (Blockchain)", "blockchain", "Web3 & Blockchain", "₹1,399", "Immutable shipping lot verification and counterfeiting detection protocol using smart contracts."],
+  ["zen-016", "Agentic Finance Worker (Rebalance + Trade)", "datascience", "Data Science & FinTech", "₹1,299", "Quant algorithmic trading portfolio rebalancer fueled by sentiment NLP indicators."],
+  ["zen-017", "Agentic Identity Verifier (DID)", "blockchain", "Web3 & Blockchain", "₹1,199", "Decentralized Identifier (DID) validation layer protecting sovereign personal authentication."],
+  ["zen-018", "Agentic Knowledge Miner (Web Crawling + Summary)", "ai", "AI & Deep Learning", "₹1,099", "Autonomous deep-web scraping and structured synthesis agent for corporate competitive analysis."],
+  ["zen-019", "Document Privacy Compliance Assistant", "datascience", "Data Science & FinTech", "₹899", "Automated redaction and personally identifiable information (PII) masking system."],
+  ["zen-020", "Virtual Security Coach (Phishing Training)", "datascience", "Data Science & FinTech", "₹899", "Interactive cybersecurity training playground that simulates adaptive phishing scenarios."],
 
-  ["zen-021", "Voice-to-Action Organizer", "ai", "AI & Deep Learning", "₹1,500", "Voice command parser converting dictation directly into categorized kanban tasks."],
-  ["zen-022", "Recipe Assistant from Fridge Snapshot", "ai", "AI & Deep Learning", "₹2,000", "Computer vision model utilizing YOLO to recognize pantry items and generate culinary recipes."],
-  ["zen-023", "Expense Auto-Categorizer with OCR", "ai", "AI & Deep Learning", "₹1,900", "Receipt scanner using optical character recognition to automate personal accounting and tax filing."],
-  ["zen-024", "Email Digest & Smart Reply Tool", "ai", "AI & Deep Learning", "₹1,500", "Summarizes verbose daily email threads and generates contextually tailored response drafts."],
-  ["zen-025", "Automatic PDF to Slides Converter", "ai", "AI & Deep Learning", "₹1,600", "Parses complex PDF academic papers and visualizes key charts onto presentation slides."],
-  ["zen-026", "Personal Finance Forecast Assistant", "datascience", "Data Science & FinTech", "₹2,200", "Time-series forecasting financial app predicting cash-flow anomalies and savings runway."],
-  ["zen-027", "Resume Analyzer & Job Score", "ai", "AI & Deep Learning", "₹1,700", "Applicant Tracking System (ATS) optimization tool that matches CV competencies against job postings."],
-  ["zen-028", "Automated Quiz Generator from Notes", "ai", "AI & Deep Learning", "₹1,500", "Generates interactive multiple-choice assessments and exam rubrics from study textbooks."],
-  ["zen-029", "Flashcard Builder from Study Notes", "web", "Full-Stack Web Dev", "₹1,500", "Spaced-repetition learning deck generator integrated with modular Markdown note-taking."],
-  ["zen-030", "Chat Transcription & Action Item Auto-capture", "ai", "AI & Deep Learning", "₹1,800", "Real-time chatroom analyzer that tags assignments and deadlines automatically."],
-  ["zen-031", "Task Auto-Paradigmer (CLI Workflow)", "web", "Full-Stack Web Dev", "₹1,600", "Developer terminal utility that orchestrates daily engineering task flows and git branch automation."],
-  ["zen-032", "Snippet Manager with AI Auto-Suggest", "ai", "AI & Deep Learning", "₹1,900", "Code repository assistant that categorizes reusable scripts with vector similarity search."],
-  ["zen-033", "Image to CSS Converter", "web", "Full-Stack Web Dev", "₹2,400", "Visual AI converter that takes website mockups and generates responsive Flexbox/Grid CSS code."],
-  ["zen-034", "Low-code Form + Workflow Builder", "web", "Full-Stack Web Dev", "₹2,500", "Drag-and-drop dynamic form designer with automated webhooks and database persistence."],
-  ["zen-035", "Website SEO Audit + Optimizer", "web", "Full-Stack Web Dev", "₹1,800", "Crawls domains to report broken links, missing metadata tags, and core web vitals speed bottlenecks."],
-  ["zen-036", "Social Media Posting Scheduler", "web", "Full-Stack Web Dev", "₹1,700", "Multi-platform queuing dashboard with audience engagement timing predictors."],
-  ["zen-037", "Code Documentation Auto-generator", "ai", "AI & Deep Learning", "₹2,100", "Analyzes raw code repositories to automatically write comprehensive Markdown README and JSDoc files."],
-  ["zen-038", "One-click Deploy Boilerplate Generator", "web", "Full-Stack Web Dev", "₹2,000", "Full-stack starter scaffold builder configuring authentication, ORM schemas, and CI testing instantly."],
-  ["zen-039", "Transcript Summarizer for Videos", "ai", "AI & Deep Learning", "₹1,700", "Extracts key takeaways, chapter timestamps, and highlight reels from technical video lectures."],
-  ["zen-040", "AI-Powered Idea Brainstorm Generator", "ai", "AI & Deep Learning", "₹1,500", "Interactive ideation studio mapping problem statements to actionable technical architectures."],
+  ["zen-021", "Voice-to-Action Organizer", "ai", "AI & Deep Learning", "₹699", "Voice command parser converting dictation directly into categorized kanban tasks."],
+  ["zen-022", "Recipe Assistant from Fridge Snapshot", "ai", "AI & Deep Learning", "₹999", "Computer vision model utilizing YOLO to recognize pantry items and generate culinary recipes."],
+  ["zen-023", "Expense Auto-Categorizer with OCR", "ai", "AI & Deep Learning", "₹999", "Receipt scanner using optical character recognition to automate personal accounting and tax filing."],
+  ["zen-024", "Email Digest & Smart Reply Tool", "ai", "AI & Deep Learning", "₹699", "Summarizes verbose daily email threads and generates contextually tailored response drafts."],
+  ["zen-025", "Automatic PDF to Slides Converter", "ai", "AI & Deep Learning", "₹799", "Parses complex PDF academic papers and visualizes key charts onto presentation slides."],
+  ["zen-026", "Personal Finance Forecast Assistant", "datascience", "Data Science & FinTech", "₹1,099", "Time-series forecasting financial app predicting cash-flow anomalies and savings runway."],
+  ["zen-027", "Resume Analyzer & Job Score", "ai", "AI & Deep Learning", "₹799", "Applicant Tracking System (ATS) optimization tool that matches CV competencies against job postings."],
+  ["zen-028", "Automated Quiz Generator from Notes", "ai", "AI & Deep Learning", "₹699", "Generates interactive multiple-choice assessments and exam rubrics from study textbooks."],
+  ["zen-029", "Flashcard Builder from Study Notes", "web", "Full-Stack Web Dev", "₹699", "Spaced-repetition learning deck generator integrated with modular Markdown note-taking."],
+  ["zen-030", "Chat Transcription & Action Item Auto-capture", "ai", "AI & Deep Learning", "₹699", "Real-time chatroom analyzer that tags assignments and deadlines automatically."],
+  ["zen-031", "Task Auto-Paradigmer (CLI Workflow)", "web", "Full-Stack Web Dev", "₹799", "Developer terminal utility that orchestrates daily engineering task flows and git branch automation."],
+  ["zen-032", "Snippet Manager with AI Auto-Suggest", "ai", "AI & Deep Learning", "₹899", "Code repository assistant that categorizes reusable scripts with vector similarity search."],
+  ["zen-033", "Image to CSS Converter", "web", "Full-Stack Web Dev", "₹1,199", "Visual AI converter that takes website mockups and generates responsive Flexbox/Grid CSS code."],
+  ["zen-034", "Low-code Form + Workflow Builder", "web", "Full-Stack Web Dev", "₹1,299", "Drag-and-drop dynamic form designer with automated webhooks and database persistence."],
+  ["zen-035", "Website SEO Audit + Optimizer", "web", "Full-Stack Web Dev", "₹899", "Crawls domains to report broken links, missing metadata tags, and core web vitals speed bottlenecks."],
+  ["zen-036", "Social Media Posting Scheduler", "web", "Full-Stack Web Dev", "₹899", "Multi-platform queuing dashboard with audience engagement timing predictors."],
+  ["zen-037", "Code Documentation Auto-generator", "ai", "AI & Deep Learning", "₹999", "Analyzes raw code repositories to automatically write comprehensive Markdown README and JSDoc files."],
+  ["zen-038", "One-click Deploy Boilerplate Generator", "web", "Full-Stack Web Dev", "₹999", "Full-stack starter scaffold builder configuring authentication, ORM schemas, and CI testing instantly."],
+  ["zen-039", "Transcript Summarizer for Videos", "ai", "AI & Deep Learning", "₹899", "Extracts key takeaways, chapter timestamps, and highlight reels from technical video lectures."],
+  ["zen-040", "AI-Powered Idea Brainstorm Generator", "ai", "AI & Deep Learning", "₹699", "Interactive ideation studio mapping problem statements to actionable technical architectures."],
 
-  ["zen-041", "AI-Enhanced Penetration Testing (PenTest++)", "datascience", "Data Science & FinTech", "₹3,000", "Automated network intrusion vulnerability mapper using reinforcement learning exploration."],
-  ["zen-042", "AI SOC Triage Agent", "datascience", "Data Science & FinTech", "₹2,800", "Security Operations Center assistant correlating multi-server intrusion alerts in real-time."],
-  ["zen-043", "Malware AI Analysis Toolkit", "datascience", "Data Science & FinTech", "₹2,900", "Static and dynamic executable behavior sandbox designed to flag zero-day Trojan patterns."],
-  ["zen-044", "CTF Challenge Generator", "datascience", "Data Science & FinTech", "₹2,400", "Automated Capture The Flag competition platform generating unique cryptographic puzzles."],
-  ["zen-045", "Phishing Simulation Platform", "datascience", "Data Science & FinTech", "₹2,300", "Enterprise security awareness simulation suite tracking employee credential vulnerability metrics."],
-  ["zen-046", "Vulnerability Scanner with AI Suggestions", "datascience", "Data Science & FinTech", "₹2,800", "Inspects application architecture endpoints and outputs tailored security remediation code diffs."],
-  ["zen-047", "Security Alert Auto-Summarizer Agent", "datascience", "Data Science & FinTech", "₹2,100", "Aggregates noisy SIEM alert firehose streams into digestible high-severity executive digests."],
-  ["zen-048", "Code Security Auditor Agent", "datascience", "Data Science & FinTech", "₹2,600", "Static Application Security Testing (SAST) pipeline checking for OWASP Top 10 injection risks."],
-  ["zen-049", "Privacy-Aware Data Map Generator", "datascience", "Data Science & FinTech", "₹2,000", "Enterprise system scanner mapping internal data flows for compliance audit readiness."],
-  ["zen-050", "Threat Intelligence Aggregator Bot", "datascience", "Data Science & FinTech", "₹2,200", "Scrapes darkweb forums and IOC threat feeds to warn network administrators of emerging vectors."],
-  ["zen-051", "Fake News Detector with AI", "ai", "AI & Deep Learning", "₹2,100", "Natural Language Processing verification engine checking news credibility against verified primary sources."],
-  ["zen-052", "Voice Fraud Detection System", "ai", "AI & Deep Learning", "₹2,700", "Audio spectral classification network designed to flag synthetic cloned voice impostors on phone calls."],
-  ["zen-053", "Deepfake Image & Video Checker", "ai", "AI & Deep Learning", "₹2,900", "Vision Transformer architecture detecting manipulated facial boundaries and GAN artifacts in video media."],
-  ["zen-054", "Anti-Spam AI Email Filter", "ai", "AI & Deep Learning", "₹1,800", "Bayesian and transformer dual-filter identifying zero-day phishing attachments and spoofed sender heads."],
-  ["zen-055", "Secure Auth with Passkeys Automation", "web", "Full-Stack Web Dev", "₹2,300", "FIDO2 passwordless WebAuthn implementation module with biometrics and secure token fallback."],
-  ["zen-056", "2FA Integration Tool for SaaS", "web", "Full-Stack Web Dev", "₹1,900", "Time-based One-Time Password (TOTP) and SMS verification gateway for multitenant cloud apps."],
-  ["zen-057", "Automated Incident Report Generator", "datascience", "Data Science & FinTech", "₹2,000", "Synthesizes system crash logs and pager notifications into compliant post-mortem documentation."],
-  ["zen-058", "Access Logging & Alert System", "web", "Full-Stack Web Dev", "₹2,100", "Real-time role-based access control audit viewer monitoring unauthorized API escalation attempts."],
-  ["zen-059", "Gitleaks: Secret Leak Detector Bot", "datascience", "Data Science & FinTech", "₹2,100", "Automated pre-commit git scanner preventing API keys and database tokens from being pushed public."],
-  ["zen-060", "Compliance Policy Auto-Monitoring Agent", "datascience", "Data Science & FinTech", "₹2,400", "Continuous infrastructure monitor validating ISO 27001 and SOC2 cloud configuration alignments."],
+  ["zen-041", "AI-Enhanced Penetration Testing (PenTest++)", "datascience", "Data Science & FinTech", "₹1,499", "Automated network intrusion vulnerability mapper using reinforcement learning exploration."],
+  ["zen-042", "AI SOC Triage Agent", "datascience", "Data Science & FinTech", "₹1,399", "Security Operations Center assistant correlating multi-server intrusion alerts in real-time."],
+  ["zen-043", "Malware AI Analysis Toolkit", "datascience", "Data Science & FinTech", "₹1,499", "Static and dynamic executable behavior sandbox designed to flag zero-day Trojan patterns."],
+  ["zen-044", "CTF Challenge Generator", "datascience", "Data Science & FinTech", "₹1,199", "Automated Capture The Flag competition platform generating unique cryptographic puzzles."],
+  ["zen-045", "Phishing Simulation Platform", "datascience", "Data Science & FinTech", "₹1,099", "Enterprise security awareness simulation suite tracking employee credential vulnerability metrics."],
+  ["zen-046", "Vulnerability Scanner with AI Suggestions", "datascience", "Data Science & FinTech", "₹1,299", "Inspects application architecture endpoints and outputs tailored security remediation code diffs."],
+  ["zen-047", "Security Alert Auto-Summarizer Agent", "datascience", "Data Science & FinTech", "₹999", "Aggregates noisy SIEM alert firehose streams into digestible high-severity executive digests."],
+  ["zen-048", "Code Security Auditor Agent", "datascience", "Data Science & FinTech", "₹1,199", "Static Application Security Testing (SAST) pipeline checking for OWASP Top 10 injection risks."],
+  ["zen-049", "Privacy-Aware Data Map Generator", "datascience", "Data Science & FinTech", "₹899", "Enterprise system scanner mapping internal data flows for compliance audit readiness."],
+  ["zen-050", "Threat Intelligence Aggregator Bot", "datascience", "Data Science & FinTech", "₹1,099", "Scrapes darkweb forums and IOC threat feeds to warn network administrators of emerging vectors."],
+  ["zen-051", "Fake News Detector with AI", "ai", "AI & Deep Learning", "₹999", "Natural Language Processing verification engine checking news credibility against verified primary sources."],
+  ["zen-052", "Voice Fraud Detection System", "ai", "AI & Deep Learning", "₹1,399", "Audio spectral classification network designed to flag synthetic cloned voice impostors on phone calls."],
+  ["zen-053", "Deepfake Image & Video Checker", "ai", "AI & Deep Learning", "₹1,499", "Vision Transformer architecture detecting manipulated facial boundaries and GAN artifacts in video media."],
+  ["zen-054", "Anti-Spam AI Email Filter", "ai", "AI & Deep Learning", "₹899", "Bayesian and transformer dual-filter identifying zero-day phishing attachments and spoofed sender heads."],
+  ["zen-055", "Secure Auth with Passkeys Automation", "web", "Full-Stack Web Dev", "₹1,199", "FIDO2 passwordless WebAuthn implementation module with biometrics and secure token fallback."],
+  ["zen-056", "2FA Integration Tool for SaaS", "web", "Full-Stack Web Dev", "₹899", "Time-based One-Time Password (TOTP) and SMS verification gateway for multitenant cloud apps."],
+  ["zen-057", "Automated Incident Report Generator", "datascience", "Data Science & FinTech", "₹999", "Synthesizes system crash logs and pager notifications into compliant post-mortem documentation."],
+  ["zen-058", "Access Logging & Alert System", "web", "Full-Stack Web Dev", "₹1,099", "Real-time role-based access control audit viewer monitoring unauthorized API escalation attempts."],
+  ["zen-059", "Gitleaks: Secret Leak Detector Bot", "datascience", "Data Science & FinTech", "₹1,099", "Automated pre-commit git scanner preventing API keys and database tokens from being pushed public."],
+  ["zen-060", "Compliance Policy Auto-Monitoring Agent", "datascience", "Data Science & FinTech", "₹1,199", "Continuous infrastructure monitor validating ISO 27001 and SOC2 cloud configuration alignments."],
 
-  ["zen-061", "AI DeFi Portfolio Rebalancer", "blockchain", "Web3 & Blockchain", "₹3,000", "Smart contract automation adjusting decentralized staking allocations based on predictive risk spreads."],
-  ["zen-062", "On-chain Snapshot Voting Agent", "blockchain", "Web3 & Blockchain", "₹2,800", "Gasless decentralized proposal governance system with cryptographic signature validation."],
-  ["zen-063", "DAO Task Executor Agent", "blockchain", "Web3 & Blockchain", "₹2,600", "Autonomous smart contract escrow distributing ETH bounties upon successful code merges."],
-  ["zen-064", "AI Token Trading Bot (Uniswap)", "blockchain", "Web3 & Blockchain", "₹3,000", "Algorithmic liquidity provider bot detecting arbitrage opportunities across decentralized exchanges."],
-  ["zen-065", "Smart Contract Arbitrator Agent", "blockchain", "Web3 & Blockchain", "₹2,700", "Automated escrow dispute resolution mechanism powered by multi-signature consensus rules."],
-  ["zen-066", "Agentic NFT Metadata Updater", "blockchain", "Web3 & Blockchain", "₹2,500", "Dynamic NFT protocol updating on-chain asset properties in response to real-world API events."],
-  ["zen-067", "Agent-to-Agent Economy Sim Sandbox", "blockchain", "Web3 & Blockchain", "₹2,900", "Micro-economic simulation environment where AI agents buy and sell computation resources autonomously."],
-  ["zen-068", "AI Governance DAO Interface", "blockchain", "Web3 & Blockchain", "₹2,700", "Web3 dashboard summarizing lengthy governance proposals and predicting token voting impact."],
-  ["zen-069", "On-chain Agent Security Auditor", "blockchain", "Web3 & Blockchain", "₹3,000", "Automated Solidity contract bytecode analyzer checking for reentrancy and integer overflow exploits."],
-  ["zen-070", "Tokenomics Agent Simulator", "blockchain", "Web3 & Blockchain", "₹2,700", "Agent-based financial forecasting suite modeling token inflation rates and liquidity curve dynamics."],
-  ["zen-071", "Agentic Web (AI-network simulation)", "ai", "AI & Deep Learning", "₹2,800", "Simulated peer-to-peer network routing autonomous tasks between decentralized reasoning models."],
-  ["zen-072", "Swarm Agent Coordination Demo", "ai", "AI & Deep Learning", "₹2,600", "Multi-agent swarm consensus system solving distributed routing and load-balancing benchmarks."],
-  ["zen-073", "TEEs for Secure Agent Execution", "blockchain", "Web3 & Blockchain", "₹3,000", "Trusted Execution Environment enclave framework running proprietary algorithms with confidential proof."],
-  ["zen-074", "Agentic DAO Funding Tool", "blockchain", "Web3 & Blockchain", "₹2,500", "Quadratic crowdfunding grant allocation portal preventing governance whale sybil voting manipulation."],
-  ["zen-075", "On-chain Agent Chatbot (Telegram)", "blockchain", "Web3 & Blockchain", "₹2,300", "Interactive messaging bot querying live Ethereum blockchain wallet balances and gas tracker stats."],
-  ["zen-076", "DeFi Risk Prediction Agent", "blockchain", "Web3 & Blockchain", "₹2,800", "Machine learning oracle evaluating collateral lending pools to forewarn users of impermanent loss risk."],
-  ["zen-077", "On-chain Identity Verifier Agent", "blockchain", "Web3 & Blockchain", "₹2,600", "Zero-Knowledge identity protocol letting users prove age and credentials without revealing private secrets."],
-  ["zen-078", "Agentic Alert System for DeFi Exploits", "blockchain", "Web3 & Blockchain", "₹2,900", "Mempool monitoring script triggering automated wallet withdrawal upon detecting flash loan attack attempts."],
-  ["zen-079", "Multi-Agent Task Marketplace Prototype", "blockchain", "Web3 & Blockchain", "₹2,700", "Decentralized labor matching board linking artificial intelligence agents to human verification jobs."],
-  ["zen-080", "ZKP Agent for Private Transactions", "blockchain", "Web3 & Blockchain", "₹3,000", "Zero-Knowledge proof shielded payment transfer app ensuring total financial transaction anonymity."],
+  ["zen-061", "AI DeFi Portfolio Rebalancer", "blockchain", "Web3 & Blockchain", "₹1,499", "Smart contract automation adjusting decentralized staking allocations based on predictive risk spreads."],
+  ["zen-062", "On-chain Snapshot Voting Agent", "blockchain", "Web3 & Blockchain", "₹1,199", "Gasless decentralized proposal governance system with cryptographic signature validation."],
+  ["zen-063", "DAO Task Executor Agent", "blockchain", "Web3 & Blockchain", "₹999", "Autonomous smart contract escrow distributing ETH bounties upon successful code merges."],
+  ["zen-064", "AI Token Trading Bot (Uniswap)", "blockchain", "Web3 & Blockchain", "₹1,399", "Algorithmic liquidity provider bot detecting arbitrage opportunities across decentralized exchanges."],
+  ["zen-065", "Smart Contract Arbitrator Agent", "blockchain", "Web3 & Blockchain", "₹1,399", "Automated escrow dispute resolution mechanism powered by multi-signature consensus rules."],
+  ["zen-066", "Agentic NFT Metadata Updater", "blockchain", "Web3 & Blockchain", "₹899", "Dynamic NFT protocol updating on-chain asset properties in response to real-world API events."],
+  ["zen-067", "Agent-to-Agent Economy Sim Sandbox", "blockchain", "Web3 & Blockchain", "₹1,499", "Micro-economic simulation environment where AI agents buy and sell computation resources autonomously."],
+  ["zen-068", "AI Governance DAO Interface", "blockchain", "Web3 & Blockchain", "₹899", "Web3 dashboard summarizing lengthy governance proposals and predicting token voting impact."],
+  ["zen-069", "On-chain Agent Security Auditor", "blockchain", "Web3 & Blockchain", "₹1,499", "Automated Solidity contract bytecode analyzer checking for reentrancy and integer overflow exploits."],
+  ["zen-070", "Tokenomics Agent Simulator", "blockchain", "Web3 & Blockchain", "₹999", "Agent-based financial forecasting suite modeling token inflation rates and liquidity curve dynamics."],
+  ["zen-071", "Agentic Web (AI-network simulation)", "ai", "AI & Deep Learning", "₹1,399", "Simulated peer-to-peer network routing autonomous tasks between decentralized reasoning models."],
+  ["zen-072", "Swarm Agent Coordination Demo", "ai", "AI & Deep Learning", "₹1,299", "Multi-agent swarm consensus system solving distributed routing and load-balancing benchmarks."],
+  ["zen-073", "TEEs for Secure Agent Execution", "blockchain", "Web3 & Blockchain", "₹1,499", "Trusted Execution Environment enclave framework running proprietary algorithms with confidential proof."],
+  ["zen-074", "Agentic DAO Funding Tool", "blockchain", "Web3 & Blockchain", "₹799", "Quadratic crowdfunding grant allocation portal preventing governance whale sybil voting manipulation."],
+  ["zen-075", "On-chain Agent Chatbot (Telegram)", "blockchain", "Web3 & Blockchain", "₹799", "Interactive messaging bot querying live Ethereum blockchain wallet balances and gas tracker stats."],
+  ["zen-076", "DeFi Risk Prediction Agent", "blockchain", "Web3 & Blockchain", "₹1,299", "Machine learning oracle evaluating collateral lending pools to forewarn users of impermanent loss risk."],
+  ["zen-077", "On-chain Identity Verifier Agent", "blockchain", "Web3 & Blockchain", "₹1,099", "Zero-Knowledge identity protocol letting users prove age and credentials without revealing private secrets."],
+  ["zen-078", "Agentic Alert System for DeFi Exploits", "blockchain", "Web3 & Blockchain", "₹1,399", "Mempool monitoring script triggering automated wallet withdrawal upon detecting flash loan attack attempts."],
+  ["zen-079", "Multi-Agent Task Marketplace Prototype", "blockchain", "Web3 & Blockchain", "₹1,199", "Decentralized labor matching board linking artificial intelligence agents to human verification jobs."],
+  ["zen-080", "ZKP Agent for Private Transactions", "blockchain", "Web3 & Blockchain", "₹1,499", "Zero-Knowledge proof shielded payment transfer app ensuring total financial transaction anonymity."],
 
-  ["zen-081", "Smart Waste Scheduler & Tracker", "iot", "IoT & Robotics", "₹2,100", "Ultrasonic bin fill-level sensor telemetry paired with optimized garbage collection routing algorithms."],
-  ["zen-082", "IoT Air Quality Monitor Dashboard", "iot", "IoT & Robotics", "₹2,300", "ESP32 ambient sensor network logging particulate matter (PM2.5) and CO2 on live mapping dashboards."],
-  ["zen-083", "Community SOS Reporting Tool (Geo + Chat)", "web", "Full-Stack Web Dev", "₹2,000", "Geomagnified civic alerting portal connecting citizens to municipal emergency responders in crisis."],
-  ["zen-084", "Disaster Alert Aggregator Bot", "web", "Full-Stack Web Dev", "₹1,800", "Real-time weather radar and earthquake telemetry crawler broadcasting automated SMS warning alerts."],
-  ["zen-085", "Carbon Footprint Tracker PWA", "web", "Full-Stack Web Dev", "₹1,700", "Progressive Web Application calculating individual transport emissions and suggesting green lifestyle habits."],
-  ["zen-086", "NGO Donation Transparency Dashboard", "web", "Full-Stack Web Dev", "₹1,900", "Charitable expenditure portal displaying verified purchase invoices against donor endowment funds."],
-  ["zen-087", "Food Rescue Logistics Platform", "web", "Full-Stack Web Dev", "₹2,100", "Surplus dining inventory dispatcher connecting restaurant banquet leftovers directly to local homeless shelters."],
-  ["zen-088", "Remote Energy Micro-Grid Planner", "iot", "IoT & Robotics", "₹2,600", "Solar battery charge controller simulation balancing rural community electricity grid loads dynamically."],
-  ["zen-089", "Sustainable Fashion Swap Marketplace", "web", "Full-Stack Web Dev", "₹2,000", "Peer-to-peer wardrobe exchange platform promoting circular apparel recycling and thrift trading."],
-  ["zen-090", "Green Supply Chain Tracker (Blockchain)", "blockchain", "Web3 & Blockchain", "₹2,700", "On-chain ecological certification protocol tracing fair-trade timber and crop origins from farm to shelf."],
-  ["zen-091", "AI Climate Prediction Tool", "datascience", "Data Science & FinTech", "₹2,400", "Meteorological machine learning projection suite analyzing temperature anomalies and rainfall variance."],
-  ["zen-092", "Telehealth Queue + Video Appointment", "web", "Full-Stack Web Dev", "₹2,300", "Virtual medical clinical examination room with WebRTC encrypted streaming and prescription logging."],
-  ["zen-093", "Mental Health Chatbot (Ethical)", "ai", "AI & Deep Learning", "₹2,100", "Compassionate cognitive behavioral therapy conversational guide engineered with safety crisis escalation triggers."],
-  ["zen-094", "Accessibility Overlay for Websites", "web", "Full-Stack Web Dev", "₹1,700", "Screen-reader enhancement utility injecting high-contrast styling and ARIA navigation shortcuts automatically."],
-  ["zen-095", "Educational AR Experience for Remote Learning", "web", "Full-Stack Web Dev", "₹2,500", "Interactive 3D geometry and anatomy simulation laboratory playable directly within smartphone web browsers."],
-  ["zen-096", "Flashcard Generator for NGO Training", "web", "Full-Stack Web Dev", "₹1,500", "Rapid pedagogical onboarding tool crafting multilingual training decks for non-profit volunteers."],
-  ["zen-097", "Climate Data Visualization Dashboard", "datascience", "Data Science & FinTech", "₹2,000", "Interactive visual storytelling analytics portal displaying historical carbon emission tracking matrices."],
-  ["zen-098", "PWA Volunteer Coordination Tool", "web", "Full-Stack Web Dev", "₹1,800", "Offline-capable community organizing app tracking shift attendance and resource distribution."],
-  ["zen-099", "Global Hackathon Submission Portal", "web", "Full-Stack Web Dev", "₹2,200", "Innovation contest evaluation platform managing team project submission, judging rubrics, and leaderboards."],
-  ["zen-100", "Ethical AI Ideation Toolkit (Workbook)", "mba", "MBA Strategy & Research", "₹1,500", "Comprehensive academic framing workbook evaluating AI algorithmic bias, societal harm, and regulation."]
+  ["zen-081", "Smart Waste Scheduler & Tracker", "iot", "IoT & Robotics", "₹1,099", "Ultrasonic bin fill-level sensor telemetry paired with optimized garbage collection routing algorithms."],
+  ["zen-082", "IoT Air Quality Monitor Dashboard", "iot", "IoT & Robotics", "₹1,199", "ESP32 ambient sensor network logging particulate matter (PM2.5) and CO2 on live mapping dashboards."],
+  ["zen-083", "Community SOS Reporting Tool (Geo + Chat)", "web", "Full-Stack Web Dev", "₹999", "Geomagnified civic alerting portal connecting citizens to municipal emergency responders in crisis."],
+  ["zen-084", "Disaster Alert Aggregator Bot", "web", "Full-Stack Web Dev", "₹899", "Real-time weather radar and earthquake telemetry crawler broadcasting automated SMS warning alerts."],
+  ["zen-085", "Carbon Footprint Tracker PWA", "web", "Full-Stack Web Dev", "₹799", "Progressive Web Application calculating individual transport emissions and suggesting green lifestyle habits."],
+  ["zen-086", "NGO Donation Transparency Dashboard", "web", "Full-Stack Web Dev", "₹899", "Charitable expenditure portal displaying verified purchase invoices against donor endowment funds."],
+  ["zen-087", "Food Rescue Logistics Platform", "web", "Full-Stack Web Dev", "₹999", "Surplus dining inventory dispatcher connecting restaurant banquet leftovers directly to local homeless shelters."],
+  ["zen-088", "Remote Energy Micro-Grid Planner", "iot", "IoT & Robotics", "₹1,399", "Solar battery charge controller simulation balancing rural community electricity grid loads dynamically."],
+  ["zen-089", "Sustainable Fashion Swap Marketplace", "web", "Full-Stack Web Dev", "₹999", "Peer-to-peer wardrobe exchange platform promoting circular apparel recycling and thrift trading."],
+  ["zen-090", "Green Supply Chain Tracker (Blockchain)", "blockchain", "Web3 & Blockchain", "₹1,399", "On-chain ecological certification protocol tracing fair-trade timber and crop origins from farm to shelf."],
+  ["zen-091", "AI Climate Prediction Tool", "datascience", "Data Science & FinTech", "₹1,299", "Meteorological machine learning projection suite analyzing temperature anomalies and rainfall variance."],
+  ["zen-092", "Telehealth Queue + Video Appointment", "web", "Full-Stack Web Dev", "₹1,299", "Virtual medical clinical examination room with WebRTC encrypted streaming and prescription logging."],
+  ["zen-093", "Mental Health Chatbot (Ethical)", "ai", "AI & Deep Learning", "₹899", "Compassionate cognitive behavioral therapy conversational guide engineered with safety crisis escalation triggers."],
+  ["zen-094", "Accessibility Overlay for Websites", "web", "Full-Stack Web Dev", "₹799", "Screen-reader enhancement utility injecting high-contrast styling and ARIA navigation shortcuts automatically."],
+  ["zen-095", "Educational AR Experience for Remote Learning", "web", "Full-Stack Web Dev", "₹1,399", "Interactive 3D geometry and anatomy simulation laboratory playable directly within smartphone web browsers."],
+  ["zen-096", "Flashcard Generator for NGO Training", "web", "Full-Stack Web Dev", "₹699", "Rapid pedagogical onboarding tool crafting multilingual training decks for non-profit volunteers."],
+  ["zen-097", "Climate Data Visualization Dashboard", "datascience", "Data Science & FinTech", "₹999", "Interactive visual storytelling analytics portal displaying historical carbon emission tracking matrices."],
+  ["zen-098", "PWA Volunteer Coordination Tool", "web", "Full-Stack Web Dev", "₹899", "Offline-capable community organizing app tracking shift attendance and resource distribution."],
+  ["zen-099", "Global Hackathon Submission Portal", "web", "Full-Stack Web Dev", "₹1,099", "Innovation contest evaluation platform managing team project submission, judging rubrics, and leaderboards."],
+  ["zen-100", "Ethical AI Ideation Toolkit (Workbook)", "mba", "MBA Strategy & Research", "₹699", "Comprehensive academic framing workbook evaluating AI algorithmic bias, societal harm, and regulation."]
 ];
 
 const DEFAULT_SEED_PROJECTS = RAW_PROJECTS.map((item, idx) => {
@@ -255,7 +255,7 @@ const DEFAULT_SEED_PROJECTS = RAW_PROJECTS.map((item, idx) => {
     category: category,
     categoryLabel: categoryLabel,
     price: price,
-    priceNum: parseInt(price.replace(/[^0-9]/g, ''), 10) || 3500,
+    priceNum: parseInt(price.replace(/[^0-9]/g, ''), 10) || 1099,
     img: photoUrl,
     desc: desc,
     tech: isBot 
@@ -271,7 +271,7 @@ const DEFAULT_SEED_PROJECTS = RAW_PROJECTS.map((item, idx) => {
 });
 
 const ZenvyraStore = {
-  key: 'zenvyra_products_v7_hardware_photo_fix',
+  key: 'zenvyra_products_v8_software_budget_calibration',
   init() {
     const existing = SafeStorage.getItem(this.key);
     if (!existing) {
@@ -440,7 +440,7 @@ function renderCatalog() {
     const sysCat = (sys.categoryLabel || sys.category || sys.domain || '').toUpperCase();
     const rawCat = (sys.category || '').toLowerCase();
     const isHardware = (sys.id || '').toLowerCase().startsWith('bot-') || rawCat === 'iot' || sysCat.includes('ROBOTICS') || sysCat.includes('HARDWARE') || sysCat.includes('IOT');
-    const displayPrice = sys.price || (isHardware ? '₹4,500' : '₹2,500');
+    const displayPrice = sys.price || (isHardware ? '₹3,500' : '₹1,199');
     
     let domainTag = 'SOFTWARE ARCHITECTURE';
     if (isHardware) domainTag = 'ROBOTICS & IOT';
@@ -513,7 +513,7 @@ function openProjModal(sysId) {
 
   const isHardware = (sys.categoryLabel || sys.category || '').toUpperCase().includes('ROBOTICS') || 
                      (sys.categoryLabel || sys.category || '').toUpperCase().includes('HARDWARE');
-  const priceDisplay = sys.price || (isHardware ? '₹4,500' : '₹2,500');
+  const priceDisplay = sys.price || (isHardware ? '₹3,500' : '₹1,199');
 
   titleEl.innerText = sys.title || sys.name;
   bodyEl.innerHTML = `
@@ -572,8 +572,8 @@ function openBuyModal(sysId) {
 
   if (!modal) return;
   if (nameEl) nameEl.value = sys.title || sys.name;
-  if (priceEl) priceEl.value = sys.price || '₹3,000';
-  if (dispEl) dispEl.innerText = sys.price || '₹3,000';
+  if (priceEl) priceEl.value = sys.price || '₹1,199';
+  if (dispEl) dispEl.innerText = sys.price || '₹1,199';
 
   modal.classList.add('active');
 }
