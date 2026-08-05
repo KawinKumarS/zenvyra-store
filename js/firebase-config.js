@@ -6,6 +6,9 @@ import {
   collection, 
   addDoc, 
   getDocs, 
+  doc,
+  setDoc,
+  deleteDoc,
   query, 
   orderBy,
   serverTimestamp 
@@ -103,6 +106,54 @@ async function getRnDInquiries() {
   return results;
 }
 
+// ============================================================================
+// FIRESTORE PRODUCT INVENTORY CLOUD SYNCHRONIZATION METHODS
+// ============================================================================
+const PRODUCTS_COLLECTION = 'catalog_products';
+
+async function saveProductToCloud(product) {
+  try {
+    if (!product || !product.id) return { success: false, error: 'No ID specified' };
+    const docRef = doc(db, PRODUCTS_COLLECTION, product.id);
+    await setDoc(docRef, {
+      ...product,
+      updatedTimestamp: Date.now()
+    }, { merge: true });
+    console.log(`[ZENVYRA CLOUD CATALOG] Architecture ${product.id} synchronized with Firebase Firestore.`);
+    return { success: true };
+  } catch (error) {
+    console.warn("[ZENVYRA CLOUD CATALOG] Could not push update to Firebase (relying on local storage):", error);
+    return { success: false, error };
+  }
+}
+
+async function deleteProductFromCloud(productId) {
+  try {
+    const docRef = doc(db, PRODUCTS_COLLECTION, productId);
+    await deleteDoc(docRef);
+    console.log(`[ZENVYRA CLOUD CATALOG] Architecture ${productId} removed from Firebase Firestore.`);
+    return { success: true };
+  } catch (error) {
+    console.warn("[ZENVYRA CLOUD CATALOG] Notice deleting from cloud:", error);
+    return { success: false, error };
+  }
+}
+
+async function getCloudProducts() {
+  try {
+    const querySnapshot = await getDocs(collection(db, PRODUCTS_COLLECTION));
+    const products = [];
+    querySnapshot.forEach((docItem) => {
+      products.push(docItem.data());
+    });
+    console.log(`[ZENVYRA CLOUD CATALOG] Successfully fetched ${products.length} synchronized catalog items from Firebase.`);
+    return products;
+  } catch (error) {
+    console.warn("[ZENVYRA CLOUD CATALOG] Notice fetching cloud catalog (relying on offline defaults):", error);
+    return [];
+  }
+}
+
 // Attach to global scope for application & admin access
 window.ZenvyraFirebase = {
   app: app,
@@ -110,9 +161,12 @@ window.ZenvyraFirebase = {
   db: db,
   config: firebaseConfig,
   saveRnDInquiry: saveRnDInquiry,
-  getRnDInquiries: getRnDInquiries
+  getRnDInquiries: getRnDInquiries,
+  saveProductToCloud: saveProductToCloud,
+  deleteProductFromCloud: deleteProductFromCloud,
+  getCloudProducts: getCloudProducts
 };
 
 console.log("[ZENVYRA CLOUD ENGINE] Firebase infrastructure securely bridged to project:", firebaseConfig.projectId);
 
-export { app, analytics, db, saveRnDInquiry, getRnDInquiries };
+export { app, analytics, db, saveRnDInquiry, getRnDInquiries, saveProductToCloud, deleteProductFromCloud, getCloudProducts };

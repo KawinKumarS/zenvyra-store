@@ -296,6 +296,9 @@ const ZenvyraStore = {
     const list = this.getAll();
     list.unshift(project);
     this.save(list);
+    if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.saveProductToCloud === 'function') {
+      window.ZenvyraFirebase.saveProductToCloud(project);
+    }
   },
   updatePrice(id, newPriceString) {
     const list = this.getAll();
@@ -303,17 +306,57 @@ const ZenvyraStore = {
     if (target) {
       target.price = newPriceString.startsWith('₹') ? newPriceString : `₹${newPriceString}`;
       this.save(list);
+      if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.saveProductToCloud === 'function') {
+        window.ZenvyraFirebase.saveProductToCloud(target);
+      }
     }
   },
   updateProduct(id, updatedData) {
     let list = this.getAll();
     list = list.map(p => p.id === id ? { ...p, ...updatedData } : p);
     this.save(list);
+    const target = list.find(p => p.id === id);
+    if (target && window.ZenvyraFirebase && typeof window.ZenvyraFirebase.saveProductToCloud === 'function') {
+      window.ZenvyraFirebase.saveProductToCloud(target);
+    }
   },
   delete(id) {
     let list = this.getAll();
     list = list.filter(p => p.id !== id);
     this.save(list);
+    if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.deleteProductFromCloud === 'function') {
+      window.ZenvyraFirebase.deleteProductFromCloud(id);
+    }
+  },
+  async syncWithCloud(onUpdateCallback) {
+    if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.getCloudProducts === 'function') {
+      try {
+        const cloudProducts = await window.ZenvyraFirebase.getCloudProducts();
+        if (Array.isArray(cloudProducts) && cloudProducts.length > 0) {
+          let list = this.getAll();
+          let updated = false;
+          cloudProducts.forEach(cloudProd => {
+            const index = list.findIndex(p => p.id === cloudProd.id);
+            if (index >= 0) {
+              if (JSON.stringify(list[index]) !== JSON.stringify({ ...list[index], ...cloudProd })) {
+                list[index] = { ...list[index], ...cloudProd };
+                updated = true;
+              }
+            } else {
+              list.unshift(cloudProd);
+              updated = true;
+            }
+          });
+          if (updated) {
+            this.save(list);
+            if (typeof onUpdateCallback === 'function') onUpdateCallback(list);
+            console.log("[ZENVYRA STORE] Catalog inventory synchronized with cloud repository.");
+          }
+        }
+      } catch (err) {
+        console.warn("[ZENVYRA STORE] Cloud inventory sync notice:", err);
+      }
+    }
   },
   resetToDefault() {
     this.save(DEFAULT_SEED_PROJECTS);
@@ -370,6 +413,14 @@ let currentSearchQuery = '';
 
 function initCatalogEngine() {
   renderCatalog();
+  const attemptCloudSync = (retries = 0) => {
+    if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.getCloudProducts === 'function') {
+      ZenvyraStore.syncWithCloud(() => renderCatalog());
+    } else if (retries < 5) {
+      setTimeout(() => attemptCloudSync(retries + 1), 600);
+    }
+  };
+  setTimeout(() => attemptCloudSync(), 500);
 }
 
 function filterCatalog(category, btnElement) {
@@ -912,6 +963,15 @@ function initAdminEngine() {
   renderAdminInventory();
   renderRnDTable();
   
+  const attemptAdminCloudSync = (retries = 0) => {
+    if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.getCloudProducts === 'function') {
+      ZenvyraStore.syncWithCloud(() => renderAdminInventory());
+    } else if (retries < 5) {
+      setTimeout(() => attemptAdminCloudSync(retries + 1), 600);
+    }
+  };
+  setTimeout(() => attemptAdminCloudSync(), 500);
+  
   // Setup JSON Backup & Restore actions
   const exportBtn = document.getElementById('btn-export-json');
   const importBtn = document.getElementById('btn-import-json');
@@ -958,7 +1018,7 @@ function initAdminEngine() {
     saveProdBtn.addEventListener('click', () => {
       const title = document.getElementById('prod-title')?.value.trim();
       const cat = document.getElementById('prod-cat')?.value || 'ai';
-      const price = document.getElementById('prod-price')?.value || '₹4,999';
+      const price = document.getElementById('prod-price')?.value || '₹1,199';
       const desc = document.getElementById('prod-desc')?.value || '';
       const tech = (document.getElementById('prod-tech')?.value || 'Python, Source Code, Report').split(',').map(s=>s.trim());
       const img = document.getElementById('prod-img-base64')?.value || './assets/ai_project_thumb.jpg';

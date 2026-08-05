@@ -18,6 +18,12 @@ service cloud.firestore {
       // if request.auth != null && request.auth.token.admin == true;
     }
 
+    // Allow anyone visiting the storefront to read product inventory,
+    // and allow the Executive Admin Console to sync catalog updates.
+    match /catalog_products/{productId} {
+      allow read, write: if true;
+    }
+
     // Default rule: block unauthorized access to any other collections
     match /{document=**} {
       allow read, write: if false;
