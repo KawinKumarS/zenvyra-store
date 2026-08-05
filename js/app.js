@@ -601,7 +601,7 @@ function closeAllModals() {
 }
 
 /* ==========================================================================
-   7. Engineering WhatsApp Checkout Transmission (+91 73970 41575)
+   7. Engineering WhatsApp Checkout Transmission (+91 70122 88040)
    ========================================================================== */
 function handleBuySubmit(e) {
   e.preventDefault();
@@ -614,7 +614,7 @@ function handleBuySubmit(e) {
   const message = `Hello ZENVYRA Engineering Team,\n\nI would like to acquire the following system architecture:\n\n*System Architecture:* ${sysName}\n*Fixed Investment:* ${sysPrice} INR\n\n*Client / Engineer details:*\n- Name: ${clientName}\n- Contact: ${clientPhone}\n- Custom Implementation Notes: ${clientReq}\n\nPlease provide direct repository access, specification documentation, and payment instructions.`;
 
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/917397041575?text=${encoded}`, '_blank');
+  window.open(`https://wa.me/917012288040?text=${encoded}`, '_blank');
   closeBuyModal();
 }
 
@@ -643,7 +643,7 @@ function handleInquirySubmit(e) {
   // 3. Open Direct WhatsApp Engineering Desk
   const message = `Hello ZENVYRA R&D Desk,\n\nI am contacting you regarding a customized architecture consultation:\n\n*Name/Organization:* ${name}\n*WhatsApp Contact:* ${phone}\n\n*Technical Objectives & Specifications:*\n${query}\n\nPlease assign an engineer to discuss appropriate system options within your inventory.`;
   const encoded = encodeURIComponent(message);
-  window.open(`https://wa.me/917397041575?text=${encoded}`, '_blank');
+  window.open(`https://wa.me/917012288040?text=${encoded}`, '_blank');
   closeInquiryModal();
 }
 
