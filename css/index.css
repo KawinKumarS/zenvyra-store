@@ -741,7 +741,7 @@ body:not(.dark-theme) .filter-btn:hover {
 /* Product Card Grid */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
   gap: 2rem;
 }
 
@@ -918,7 +918,7 @@ body:not(.dark-theme) .project-card::before {
 
 .adv-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
 }
 
@@ -968,7 +968,7 @@ body:not(.dark-theme) .project-card::before {
 
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
   gap: 2rem;
 }
 
@@ -1256,7 +1256,7 @@ body:not(.dark-theme) .project-card::before {
   font-size: 0.85rem;
 }
 
-/* Responsive Rules */
+/* Responsive & Mobile Alignment System */
 @media (max-width: 1050px) {
   .hero-glass-panel {
     max-width: 100%;
@@ -1273,6 +1273,9 @@ body:not(.dark-theme) .project-card::before {
 }
 
 @media (max-width: 850px) {
+  .container {
+    padding: 0 1.5rem;
+  }
   .nav-menu {
     display: none;
     position: absolute;
@@ -1283,6 +1286,8 @@ body:not(.dark-theme) .project-card::before {
     border-bottom: 1px solid var(--border-subtle);
     flex-direction: column;
     padding: 2rem;
+    gap: 1.25rem;
+    box-shadow: var(--elevation-md);
   }
   .nav-menu.open {
     display: flex;
@@ -1292,36 +1297,84 @@ body:not(.dark-theme) .project-card::before {
   }
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
   }
   .catalog-controls {
     flex-direction: column;
     align-items: stretch;
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  .search-box {
+    min-width: 100%;
+    width: 100%;
+  }
+  .projects-grid, .adv-grid, .reviews-grid {
+    gap: 1.5rem;
   }
   .spatial-hud-indicator {
     display: none;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
+  .container {
+    padding: 0 1.15rem;
+  }
   .hero-glass-panel {
     padding: 1.75rem 1.25rem;
     border-radius: var(--radius-md);
   }
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
+    line-height: 1.15;
   }
   .hero-desc {
-    font-size: 1rem;
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+  .hero-btn-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero-btn-group .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
   }
   .hero-metrics {
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1.25rem;
+    text-align: center;
   }
-  .footer-grid {
+  .projects-grid, .adv-grid, .reviews-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .pc-actions {
     grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .pc-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .modal-box {
+    padding: 1.5rem 1.25rem;
+    width: 95%;
+    max-height: 90vh;
+  }
+  .filter-group {
+    gap: 0.4rem;
+  }
+  .filter-btn {
+    padding: 0.45rem 0.75rem;
+    font-size: 0.82rem;
   }
 }
 
