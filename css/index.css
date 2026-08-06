@@ -1626,3 +1626,142 @@ body:not(.dark-theme) .project-card::before {
   transform: translateY(-2px);
 }
 
+/* ==========================================================================
+   Ultra-Premium Mobile Application UI & Silicon Valley UX Overrides
+   ========================================================================== */
+.verified-rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  padding: 0.25rem 0.65rem;
+  border-radius: 50px;
+  width: fit-content;
+  margin-bottom: 0.75rem;
+}
+
+.demo-video-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(244, 63, 94, 0.1) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  padding: 0.85rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+}
+
+.demo-video-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.2);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  /* Transform Filter Tabs into Native App Horizontal Scroller */
+  .filter-group {
+    display: flex;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0.5rem !important;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .filter-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    white-space: nowrap;
+    border-radius: 50px !important;
+    padding: 0.55rem 1rem !important;
+  }
+
+  /* Transform Tech Pills into Native Horizontal Scroller */
+  .tech-pills-bar {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.25rem;
+  }
+
+  .tech-pills-bar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tech-pill-btn {
+    flex: 0 0 auto;
+    border-radius: 50px !important;
+  }
+
+  /* Optimize Project Cards for Mobile Tap Ergonomics */
+  .project-card {
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  }
+
+  .pc-img-container {
+    height: 200px !important;
+  }
+
+  .pc-body {
+    padding: 1.25rem !important;
+  }
+
+  .pc-title {
+    font-size: 1.25rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Mobile Trust Banner Elevation */
+  .trust-guarantee-banner {
+    padding: 1.25rem 1rem !important;
+    border-radius: 16px !important;
+  }
+
+  .trust-guarantee-banner h4 {
+    font-size: 0.95rem !important;
+  }
+
+  /* Bottom sheet feel for Modals on Mobile */
+  .modal-box {
+    border-radius: 24px 24px 0 0 !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 88vh !important;
+    margin: 0 !important;
+    animation: slideUpModal 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes slideUpModal {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
+}
