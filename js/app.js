@@ -390,6 +390,8 @@ const ZenvyraWishlist = {
     const list = this.getAll();
     const countEl = document.getElementById('wishlist-count-badge');
     if (countEl) countEl.innerText = list.length;
+    const mobCountEl = document.getElementById('mobile-nav-wishlist-badge');
+    if (mobCountEl) mobCountEl.innerText = list.length;
   }
 };
 window.ZenvyraWishlist = ZenvyraWishlist;

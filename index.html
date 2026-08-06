@@ -445,6 +445,26 @@
     <span>Live R&D Support</span>
   </a>
 
+  <!-- Ultra-Premium iOS/Android Glass Bottom App Bar (Mobile Only) -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile application navigation">
+    <a href="#catalog-section" onclick="filterCatalog('all', document.querySelector('.filter-btn'))" class="mob-nav-item active">
+      <span class="mob-icon">🏠</span>
+      <span class="mob-label">Explore</span>
+    </a>
+    <a href="#catalog-section" onclick="filterCatalog('WISHLIST', document.querySelectorAll('.filter-btn')[4] || this)" class="mob-nav-item">
+      <span class="mob-icon">❤️<span id="mobile-nav-wishlist-badge" class="mob-badge">0</span></span>
+      <span class="mob-label">Saved</span>
+    </a>
+    <button type="button" onclick="openInquiryModal()" class="mob-nav-item">
+      <span class="mob-icon">⚡</span>
+      <span class="mob-label">Custom Build</span>
+    </button>
+    <a href="https://wa.me/917012288040?text=Hi%20Zenvyra%20R&D,%20I'm%20browsing%20your%20systems%20catalog%20and%20need%20assistance..." target="_blank" class="mob-nav-item mob-wa-item">
+      <span class="mob-icon">💬</span>
+      <span class="mob-label">R&D Chat</span>
+    </a>
+  </nav>
+
   <!-- External Three.js library for Observation Studio -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <!-- Firebase Cloud SDK Engine -->
