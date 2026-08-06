@@ -698,7 +698,7 @@ function openProjModal(sysId) {
 
     <a href="https://wa.me/917012288040?text=${demoRequestText}" target="_blank" class="demo-video-btn" title="Request working system demonstration video">
       <span style="font-size: 1.2rem;">▶️</span>
-      <span>Watch Live 15s System Demo Recording & Review</span>
+      <span>Watch Live 15s Video Demo</span>
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </a>
     
@@ -724,9 +724,9 @@ function openProjModal(sysId) {
       </ul>
     </div>
     
-    <div style="display: flex; justify-content: flex-end; gap: 1rem; flex-wrap: wrap;">
-      <button type="button" class="btn btn-secondary" onclick="closeProjModal()">Close Window</button>
-      <button type="button" class="btn btn-primary" onclick="closeProjModal(); openBuyModal('${sys.id}')">Deploy System via WhatsApp (${priceDisplay})</button>
+    <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap;">
+      <button type="button" class="btn btn-secondary" onclick="closeProjModal()" style="flex: 1; justify-content: center; padding: 0.85rem 1rem;">Close Window</button>
+      <button type="button" class="btn btn-primary" onclick="closeProjModal(); openBuyModal('${sys.id}')" style="flex: 1.5; justify-content: center; padding: 0.85rem 1rem;">Deploy via WhatsApp (${priceDisplay})</button>
     </div>
   `;
 
