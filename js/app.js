@@ -363,6 +363,57 @@ const ZenvyraStore = {
   }
 };
 
+const ZenvyraWishlist = {
+  key: 'zenvyra_wishlist_v1',
+  getAll() {
+    try {
+      const data = SafeStorage.getItem(this.key);
+      return data ? JSON.parse(data) : [];
+    } catch(e) { return []; }
+  },
+  save(list) {
+    SafeStorage.setItem(this.key, JSON.stringify(list));
+    this.updateUI();
+  },
+  toggle(id) {
+    let list = this.getAll();
+    if (list.includes(id)) {
+      list = list.filter(item => item !== id);
+    } else {
+      list.push(id);
+    }
+    this.save(list);
+    renderCatalog();
+    return list.includes(id);
+  },
+  updateUI() {
+    const list = this.getAll();
+    const countEl = document.getElementById('wishlist-count-badge');
+    if (countEl) countEl.innerText = list.length;
+  }
+};
+window.ZenvyraWishlist = ZenvyraWishlist;
+
+const ZenvyraAnalytics = {
+  logEvent(eventName, details = {}) {
+    try {
+      const history = JSON.parse(SafeStorage.getItem('zenvyra_analytics_log') || '[]');
+      history.unshift({ event: eventName, timestamp: new Date().toLocaleTimeString(), ...details });
+      if (history.length > 200) history.pop();
+      SafeStorage.setItem('zenvyra_analytics_log', JSON.stringify(history));
+    } catch(e) {}
+    if (window.va) {
+      try { window.va('event', eventName, details); } catch(e) {}
+    }
+  },
+  getStats() {
+    try {
+      return JSON.parse(SafeStorage.getItem('zenvyra_analytics_log') || '[]');
+    } catch(e) { return []; }
+  }
+};
+window.ZenvyraAnalytics = ZenvyraAnalytics;
+
 /* ==========================================================================
    2. Theme Switcher System (Precision Light/Dark Mode)
    ========================================================================== */
@@ -414,6 +465,8 @@ let currentSortOption = 'default';
 
 function initCatalogEngine() {
   renderCatalog();
+  try { ZenvyraWishlist.updateUI(); } catch(e) {}
+  try { ZenvyraAnalytics.logEvent('Storefront_Loaded', { device: window.innerWidth < 768 ? 'Mobile' : 'Desktop' }); } catch(e) {}
   const attemptCloudSync = (retries = 0) => {
     if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.getCloudProducts === 'function') {
       ZenvyraStore.syncWithCloud(() => renderCatalog());
@@ -430,6 +483,22 @@ function filterCatalog(category, btnElement) {
   allBtns.forEach(b => b.classList.remove('active'));
   if (btnElement) btnElement.classList.add('active');
   renderCatalog();
+  try { ZenvyraAnalytics.logEvent('Filter_Selected', { category }); } catch(e) {}
+}
+
+function filterByTechTag(tag, btnElement) {
+  const input = document.getElementById('search-input');
+  if (btnElement && btnElement.classList.contains('active')) {
+    btnElement.classList.remove('active');
+    if (input) input.value = '';
+    searchCatalog('');
+    return;
+  }
+  document.querySelectorAll('.tech-pill-btn').forEach(p => p.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+  if (input) input.value = tag;
+  searchCatalog(tag);
+  try { ZenvyraAnalytics.logEvent('TechTag_Clicked', { tag }); } catch(e) {}
 }
 
 function searchCatalog(query) {
@@ -440,6 +509,7 @@ function searchCatalog(query) {
 function sortCatalog(sortOption) {
   currentSortOption = sortOption;
   renderCatalog();
+  try { ZenvyraAnalytics.logEvent('Sort_Selected', { option: sortOption }); } catch(e) {}
 }
 
 function renderCatalog() {
@@ -451,6 +521,9 @@ function renderCatalog() {
     grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 4rem; text-align:center; color: var(--text-muted); font-family: var(--font-mono);">INVENTORY_EMPTY: 0 ARCHITECTURES DETECTED</div>`;
     return;
   }
+
+  const savedWishlistIds = ZenvyraWishlist.getAll();
+  try { ZenvyraWishlist.updateUI(); } catch(e) {}
 
   const filtered = allSystems.filter(sys => {
     const sysCat = (sys.categoryLabel || sys.category || sys.domain || '').toUpperCase();
@@ -471,6 +544,8 @@ function renderCatalog() {
       matchesCategory = !isHardware && (rawCat === 'web' || sysCat.includes('WEB') || sysCat.includes('PWA') || sysCat.includes('APP'));
     } else if (currentCategoryFilter === 'DATA') {
       matchesCategory = !isHardware && (rawCat === 'datascience' || rawCat === 'mba' || sysCat.includes('DATA') || sysCat.includes('SECURITY') || sysCat.includes('CYBER') || sysCat.includes('FINTECH') || sysCat.includes('SOC') || sysCat.includes('MBA'));
+    } else if (currentCategoryFilter === 'WISHLIST') {
+      matchesCategory = savedWishlistIds.includes(sys.id);
     }
     
     const titleText = (sys.title || sys.name || '').toLowerCase();
@@ -498,6 +573,17 @@ function renderCatalog() {
   }
 
   if (filtered.length === 0) {
+    if (currentCategoryFilter === 'WISHLIST') {
+      grid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">⭐️</div>
+          <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">Your Architecture Wishlist is Currently Empty</p>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Click the ❤️ button on any engineering package in our directory to bookmark systems here for quick comparison.</p>
+          <button type="button" onclick="filterCatalog('ALL', document.querySelector('.filter-btn'))" class="btn btn-primary" style="margin-top: 1.25rem;">Browse All Architectures</button>
+        </div>
+      `;
+      return;
+    }
     grid.innerHTML = `
       <div style="grid-column: 1 / -1; text-align: center; padding: 5rem 1rem; background: var(--surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
         <p style="font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">No architecture matches specified filtering criteria</p>
@@ -523,11 +609,16 @@ function renderCatalog() {
     const deliverables = sys.tech && sys.tech.length > 0 ? sys.tech : 
                          (isHardware ? ['ESP32 / Arduino', 'PCB Schema', '60+ Pg Specs', 'C++ Source'] : ['Full Codebase', 'DB Schematics', '60+ Pg Specs', 'Python / TS']);
 
+    const isSaved = savedWishlistIds.includes(sys.id);
+
     return `
       <article class="project-card scroll-reveal" data-id="${sys.id}" style="--anim-order: ${idx % 9};">
         <div class="pc-img-container">
           <span class="pc-domain-badge">${domainTag}</span>
           <span class="pc-price-badge">${displayPrice}</span>
+          <button type="button" onclick="ZenvyraWishlist.toggle('${sys.id}')" class="btn-wishlist ${isSaved ? 'active' : ''}" title="Save Architecture to Wishlist">
+            ${isSaved ? '❤️' : '🤍'}
+          </button>
           <img src="${sys.img || (isHardware ? './assets/ai_project_thumb.jpg' : './assets/blockchain_project_thumb.jpg')}" alt="${sys.title || sys.name}" loading="lazy">
         </div>
         <div class="pc-body">
@@ -575,6 +666,7 @@ function initSpotlightHover() {
 function openProjModal(sysId) {
   const sys = ZenvyraStore.getAll().find(p => p.id === sysId);
   if (!sys) return;
+  try { ZenvyraAnalytics.logEvent('Specification_Modal_Opened', { id: sysId, title: sys.title || sys.name }); } catch(e) {}
 
   const modal = document.getElementById('proj-modal');
   const titleEl = document.getElementById('proj-modal-title');
@@ -635,6 +727,7 @@ function closeProjModal() {
 function openBuyModal(sysId) {
   closeAllModals();
   const sys = ZenvyraStore.getAll().find(p => p.id === sysId) || { title: 'ZENVYRA Architecture Bundle', price: '₹3,000' };
+  try { ZenvyraAnalytics.logEvent('Deploy_WhatsApp_Modal_Opened', { id: sysId, title: sys.title || sys.name, price: sys.price }); } catch(e) {}
   
   const modal = document.getElementById('buy-modal');
   const nameEl = document.getElementById('buy-proj-name');
@@ -656,6 +749,7 @@ function closeBuyModal() {
 
 function openInquiryModal() {
   closeAllModals();
+  try { ZenvyraAnalytics.logEvent('Lead_Inquiry_Modal_Opened'); } catch(e) {}
   const modal = document.getElementById('inquiry-modal');
   if (modal) modal.classList.add('active');
 }
@@ -681,6 +775,8 @@ function handleBuySubmit(e) {
   const clientName = document.getElementById('buy-user-name')?.value || 'Engineer / Client';
   const clientPhone = document.getElementById('buy-user-phone')?.value || 'N/A';
   const clientReq = document.getElementById('buy-user-req')?.value.trim() || 'Standard engineering deliverables as specified.';
+
+  try { ZenvyraAnalytics.logEvent('WhatsApp_Acquisition_Sent', { sysName, sysPrice, clientPhone }); } catch(e) {}
 
   const message = `Hello ZENVYRA Engineering Team,\n\nI would like to acquire the following system architecture:\n\n*System Architecture:* ${sysName}\n*Fixed Investment:* ${sysPrice} INR\n\n*Client / Engineer details:*\n- Name: ${clientName}\n- Contact: ${clientPhone}\n- Custom Implementation Notes: ${clientReq}\n\nPlease provide direct repository access, specification documentation, and payment instructions.`;
 
@@ -1197,6 +1293,56 @@ function closeAddProductModal() {
   if (m) m.style.display = 'none';
 }
 
+function executeBulkPriceCalibration() {
+  const targetCategory = document.getElementById('bulk-target-category')?.value || 'ALL';
+  const newPriceVal = document.getElementById('bulk-new-price')?.value.trim() || '';
+
+  if (!newPriceVal) {
+    showAdminToast('⚠️ Please enter a valid INR price value (e.g., ₹899 or 899)');
+    return;
+  }
+  
+  let formattedPrice = newPriceVal;
+  if (!formattedPrice.startsWith('₹') && !isNaN(parseInt(formattedPrice.replace(/,/g, '')))) {
+    formattedPrice = '₹' + parseInt(formattedPrice.replace(/[^0-9]/g, ''), 10).toLocaleString('en-IN');
+  }
+
+  const all = ZenvyraStore.getAll();
+  let updatedCount = 0;
+
+  const modifiedList = all.map(sys => {
+    const sysCat = (sys.categoryLabel || sys.category || sys.domain || '').toUpperCase();
+    const rawCat = (sys.category || '').toLowerCase();
+    const sysId = (sys.id || '').toLowerCase();
+    const isHardware = sysId.startsWith('bot-') || rawCat === 'iot' || sysCat.includes('ROBOTICS') || sysCat.includes('HARDWARE') || sysCat.includes('IOT');
+
+    let isMatch = true;
+    if (targetCategory === 'HARDWARE') isMatch = isHardware;
+    else if (targetCategory === 'SOFTWARE') isMatch = !isHardware;
+    else if (targetCategory === 'AI') isMatch = !isHardware && (rawCat === 'ai' || sysCat.includes('AI') || sysCat.includes('DEEP'));
+    else if (targetCategory === 'BLOCKCHAIN') isMatch = !isHardware && (rawCat === 'blockchain' || sysCat.includes('BLOCKCHAIN') || sysCat.includes('WEB3'));
+    else if (targetCategory === 'WEB') isMatch = !isHardware && (rawCat === 'web' || sysCat.includes('WEB') || sysCat.includes('APP'));
+    else if (targetCategory === 'DATA') isMatch = !isHardware && (rawCat === 'datascience' || rawCat === 'mba' || sysCat.includes('DATA') || sysCat.includes('CYBER'));
+
+    if (isMatch) {
+      sys.price = formattedPrice;
+      updatedCount++;
+      if (window.ZenvyraFirebase && typeof window.ZenvyraFirebase.updateProduct === 'function') {
+        try { window.ZenvyraFirebase.updateProduct(sys.id, { price: formattedPrice }); } catch(e) {}
+      }
+    }
+    return sys;
+  });
+
+  if (updatedCount > 0) {
+    ZenvyraStore.save(modifiedList);
+    if (typeof renderAdminInventory === 'function') renderAdminInventory();
+    showAdminToast(`⚡ Successfully calibrated pricing for ${updatedCount} architectures to ${formattedPrice}!`);
+  } else {
+    showAdminToast(`ℹ️ No systems matched target category (${targetCategory}).`);
+  }
+}
+
 /* ==========================================================================
    11. Document Ready & Initialization Boot
    ========================================================================== */
@@ -1214,6 +1360,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Expose global controller actions
   window.filterCatalog = filterCatalog;
+  window.filterByTechTag = filterByTechTag;
+  window.sortCatalog = sortCatalog;
   window.searchCatalog = searchCatalog;
   window.toggleTheme = toggleTheme;
   window.toggleMobileMenu = toggleMobileMenu;
@@ -1229,6 +1377,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeAddProductModal = closeAddProductModal;
   window.switchAdminTab = switchAdminTab;
   window.renderRnDTable = renderRnDTable;
+  window.executeBulkPriceCalibration = executeBulkPriceCalibration;
   window.ZenvyraStore = ZenvyraStore;
 });
+
 

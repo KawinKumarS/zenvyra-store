@@ -103,6 +103,39 @@
           </div>
         </div>
 
+        <!-- Bulk Category Price Calibration Console -->
+        <div style="background: var(--surface); border: 1px solid var(--brand-primary); border-radius: var(--radius-sm); padding: 1.25rem 1.75rem; margin-bottom: 1.75rem; box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem;">
+            <span style="font-size: 1.2rem;">⚡</span>
+            <h4 style="font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--brand-indigo); text-transform: uppercase; letter-spacing: 0.05em;">Bulk Category Price Calibration</h4>
+          </div>
+          <p style="color: var(--text-muted); font-size: 0.88rem; margin-bottom: 1.15rem;">Instantly calibrate prices across entire product domains (e.g., during student submission season or seasonal discounts) without individual editing.</p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+            <div style="flex: 1; min-width: 220px;">
+              <label style="display: block; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.35rem;">Target Domain Category</label>
+              <select id="bulk-target-category" class="input-field" style="padding: 0.65rem 1rem; height: 42px; background: var(--bg-secondary); font-weight: 600;">
+                <option value="ALL">🌟 All 140+ Catalog Architectures</option>
+                <option value="AI">🧠 AI & Deep Learning Systems</option>
+                <option value="BLOCKCHAIN">⛓️ Web3 & Blockchain Architectures</option>
+                <option value="ROBOTICS">🤖 Robotics & Embedded Hardware</option>
+                <option value="WEB">🌐 Full-Stack Web & Apps</option>
+                <option value="DATA">🛡️ Cyber & FinTech Systems</option>
+                <option value="SOFTWARE">💻 All Software Only</option>
+                <option value="HARDWARE">🤖 All Hardware Only</option>
+              </select>
+            </div>
+            <div style="flex: 1; min-width: 180px;">
+              <label style="display: block; font-size: 0.75rem; font-family: var(--font-mono); color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 0.35rem;">New Price (INR)</label>
+              <input type="text" id="bulk-new-price" class="input-field" placeholder="e.g. ₹899 or ₹1,499" style="padding: 0.65rem 1rem; height: 42px; font-weight: 700; color: var(--brand-indigo);">
+            </div>
+            <div style="align-self: flex-end;">
+              <button type="button" onclick="executeBulkPriceCalibration()" class="btn btn-primary" style="height: 42px; padding: 0 1.5rem; font-size: 0.92rem;">
+                <span>🚀 Apply Bulk Calibration</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div class="admin-table-wrapper">
           <table class="admin-table">
             <thead>
