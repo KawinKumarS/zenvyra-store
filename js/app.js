@@ -410,6 +410,7 @@ function toggleMobileMenu() {
    ========================================================================== */
 let currentCategoryFilter = 'ALL';
 let currentSearchQuery = '';
+let currentSortOption = 'default';
 
 function initCatalogEngine() {
   renderCatalog();
@@ -433,6 +434,11 @@ function filterCatalog(category, btnElement) {
 
 function searchCatalog(query) {
   currentSearchQuery = query.toLowerCase().trim();
+  renderCatalog();
+}
+
+function sortCatalog(sortOption) {
+  currentSortOption = sortOption;
   renderCatalog();
 }
 
@@ -476,6 +482,20 @@ function renderCatalog() {
 
     return matchesCategory && matchesSearch;
   });
+
+  const getPriceVal = (pStr) => {
+    if (!pStr) return 0;
+    const cleaned = pStr.toString().replace(/[^0-9]/g, '');
+    return parseInt(cleaned, 10) || 0;
+  };
+
+  if (currentSortOption === 'price-low') {
+    filtered.sort((a, b) => getPriceVal(a.price) - getPriceVal(b.price));
+  } else if (currentSortOption === 'price-high') {
+    filtered.sort((a, b) => getPriceVal(b.price) - getPriceVal(a.price));
+  } else if (currentSortOption === 'name-az') {
+    filtered.sort((a, b) => (a.title || a.name || '').localeCompare(b.title || b.name || ''));
+  }
 
   if (filtered.length === 0) {
     grid.innerHTML = `
