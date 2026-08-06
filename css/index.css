@@ -1364,7 +1364,11 @@ body:not(.dark-theme) .project-card::before {
   }
   .hero-title {
     font-size: 1.95rem;
-    line-height: 1.18;
+    line-height: 1.35;
+  }
+  .title-gradient {
+    display: block !important;
+    margin-top: 0.25rem !important;
   }
   .hero-desc {
     font-size: 0.92rem;
@@ -1831,11 +1835,17 @@ html, body {
   }
 
   .hero-title {
-    font-size: 2.25rem !important;
+    font-size: 2.1rem !important;
     font-weight: 800 !important;
-    letter-spacing: -0.03em !important;
-    line-height: 1.15 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.35 !important;
     margin-bottom: 0.85rem !important;
+  }
+
+  .title-gradient {
+    display: block !important;
+    margin-top: 0.25rem !important;
+    padding-bottom: 0.1rem !important;
   }
 
   .hero-desc {
