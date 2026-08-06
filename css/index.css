@@ -1351,32 +1351,53 @@ body:not(.dark-theme) .project-card::before {
   .nav-logo-img {
     height: 30px;
   }
+  .hero-section.hero-3d-spatial {
+    height: auto !important;
+    min-height: calc(100vh - var(--nav-height)) !important;
+    max-height: none !important;
+    padding: 2.5rem 0 3.5rem !important;
+  }
   .hero-glass-panel {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.15rem;
     border-radius: var(--radius-md);
+    margin: 0.5rem 0;
   }
   .hero-title {
-    font-size: 2.1rem;
-    line-height: 1.15;
+    font-size: 1.95rem;
+    line-height: 1.18;
   }
   .hero-desc {
-    font-size: 0.96rem;
-    line-height: 1.55;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
   }
   .hero-btn-group {
     flex-direction: column;
     width: 100%;
     gap: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   .hero-btn-group .btn {
     width: 100%;
     justify-content: center;
     padding: 0.85rem 1rem;
+    font-size: 0.92rem !important;
   }
   .hero-metrics {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.4rem !important;
     text-align: center;
+    margin-top: 1.25rem !important;
+    padding-top: 1.1rem !important;
+  }
+  .hero-metrics h3 {
+    font-size: 1.1rem !important;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.15rem !important;
+  }
+  .hero-metrics p {
+    font-size: 0.68rem !important;
+    line-height: 1.25;
   }
   .projects-grid, .adv-grid, .reviews-grid {
     grid-template-columns: 1fr;
@@ -1672,6 +1693,13 @@ body:not(.dark-theme) .project-card::before {
 }
 
 @media (max-width: 768px) {
+  .hero-section.hero-3d-spatial {
+    height: auto !important;
+    min-height: calc(100vh - var(--nav-height)) !important;
+    max-height: none !important;
+    padding: 2rem 0 !important;
+  }
+
   /* Transform Filter Tabs into Native App Horizontal Scroller */
   .filter-group {
     display: flex;
