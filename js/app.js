@@ -626,7 +626,7 @@ function renderCatalog() {
         <div class="pc-body">
           <div class="verified-rating-badge">
             <span>⭐️ ${ratingVal}</span>
-            <span style="color: var(--text-muted); font-weight: 600;">(${deployCount} Verified Deployments)</span>
+            <span style="color: var(--text-muted); font-weight: 600;">(${deployCount} Verified Purchases)</span>
           </div>
           <h3 class="pc-title">${sys.title || sys.name}</h3>
           <p class="pc-desc">${sys.desc || 'Production-grade engineering package containing verified source code, architecture diagrams, and comprehensive technical specification documentation.'}</p>
@@ -635,7 +635,7 @@ function renderCatalog() {
           </div>
           <div class="pc-actions">
             <button type="button" onclick="openBuyModal('${sys.id}')" class="btn btn-primary" style="padding: 0.75rem 1rem; font-size: 0.9rem;">
-              <span>Deploy Architecture</span>
+              <span>🛒 Buy & Download</span>
             </button>
             <button type="button" onclick="openProjModal('${sys.id}')" class="btn btn-outline" style="padding: 0.75rem 1rem; font-size: 0.85rem;">
               <span>Specifications</span>
@@ -726,7 +726,7 @@ function openProjModal(sysId) {
     
     <div style="display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap;">
       <button type="button" class="btn btn-secondary" onclick="closeProjModal()" style="flex: 1; justify-content: center; padding: 0.85rem 1rem;">Close Window</button>
-      <button type="button" class="btn btn-primary" onclick="closeProjModal(); openBuyModal('${sys.id}')" style="flex: 1.5; justify-content: center; padding: 0.85rem 1rem;">Deploy via WhatsApp (${priceDisplay})</button>
+      <button type="button" class="btn btn-primary" onclick="closeProjModal(); openBuyModal('${sys.id}')" style="flex: 1.5; justify-content: center; padding: 0.85rem 1rem;">🛒 Check Out (${priceDisplay})</button>
     </div>
   `;
 
